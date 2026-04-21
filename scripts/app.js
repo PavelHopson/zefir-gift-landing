@@ -141,14 +141,21 @@ const renderShowcase = () => {
           </div>
 
           <div class="promo-board__content">
-            <p class="promo-board__eyebrow">${board.eyebrow}</p>
+            ${board.eyebrow ? `<p class="promo-board__eyebrow">${board.eyebrow}</p>` : ''}
             <p class="promo-board__lead">${board.lead}</p>
             <div class="promo-board__script-row">
               <h3 class="promo-board__script">${board.script}</h3>
               <span class="promo-board__script-heart" aria-hidden="true">${icons['heart-outline']}</span>
             </div>
             <p class="promo-board__subhead">${board.subhead}</p>
-            <p class="promo-board__description">${board.description}</p>
+            <div class="promo-board__description-row">
+              ${
+                board.descriptionIcon
+                  ? `<span class="promo-board__description-icon" aria-hidden="true">${icons[board.descriptionIcon]}</span>`
+                  : ''
+              }
+              <p class="promo-board__description">${board.description}</p>
+            </div>
 
             <div class="promo-board__offers">
               ${landingContent.promos
@@ -158,7 +165,8 @@ const renderShowcase = () => {
                       <span class="promo-board__offer-icon" aria-hidden="true">${icons[promo.icon]}</span>
                       <div>
                         <strong>${promo.accent}</strong>
-                        <span>${promo.title || promo.note}</span>
+                        ${promo.title ? `<span>${promo.title}</span>` : ''}
+                        ${promo.note ? `<small>${promo.note}</small>` : ''}
                       </div>
                     </article>
                   `,
@@ -186,7 +194,16 @@ const renderShowcase = () => {
             </div>
 
             <div class="promo-board__benefits">
-              ${board.benefits.map((item) => `<span>${item}</span>`).join('')}
+              ${board.benefits
+                .map(
+                  (item) => `
+                    <span>
+                      <i aria-hidden="true">${icons[item.icon]}</i>
+                      <em>${item.label}</em>
+                    </span>
+                  `,
+                )
+                .join('')}
             </div>
           </div>
         </article>
