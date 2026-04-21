@@ -126,90 +126,122 @@ const renderCollections = () => {
     .join('');
 };
 
+const buildPromoBoard = (board, options = {}) => {
+  const { titleTag = 'h3', titleId = '', extraClass = '' } = options;
+  const titleOpen = `<${titleTag} class="promo-board__script"${titleId ? ` id="${titleId}"` : ''}>`;
+  const titleClose = `</${titleTag}>`;
+
+  const boardClass = ['promo-board', extraClass].filter(Boolean).join(' ');
+
+  return `
+    <article class="${boardClass}">
+      <div class="promo-board__badge">
+        <span class="promo-board__badge-icon" aria-hidden="true">${icons.butterfly}</span>
+        <p class="promo-board__badge-text">${landingContent.badgeLines.join('<br />')}</p>
+        <span class="promo-board__badge-heart" aria-hidden="true">${icons['heart-outline']}</span>
+      </div>
+
+      <div class="promo-board__content">
+        ${board.eyebrow ? `<p class="promo-board__eyebrow">${board.eyebrow}</p>` : ''}
+        <p class="promo-board__lead">${board.lead}</p>
+        <div class="promo-board__script-row">
+          ${titleOpen}${board.script}${titleClose}
+          <span class="promo-board__script-heart" aria-hidden="true">${icons['heart-outline']}</span>
+        </div>
+        <p class="promo-board__subhead">${board.subhead}</p>
+        <div class="promo-board__description-row">
+          ${
+            board.descriptionIcon
+              ? `<span class="promo-board__description-icon" aria-hidden="true">${icons[board.descriptionIcon]}</span>`
+              : ''
+          }
+          <p class="promo-board__description">${board.description}</p>
+        </div>
+
+        <div class="promo-board__offers">
+          ${landingContent.promos
+            .map(
+              (promo) => `
+                <article class="promo-board__offer">
+                  <span class="promo-board__offer-icon" aria-hidden="true">${icons[promo.icon]}</span>
+                  <div>
+                    <strong>${promo.accent}</strong>
+                    ${promo.title ? `<span>${promo.title}</span>` : ''}
+                    ${promo.note ? `<small>${promo.note}</small>` : ''}
+                  </div>
+                </article>
+              `,
+            )
+            .join('')}
+        </div>
+      </div>
+
+      <div class="promo-board__visual">
+        <figure class="promo-board__hero-media">
+          <img src="${board.heroImage}" alt="${board.heroAlt}" />
+        </figure>
+
+        <div class="promo-board__compliment">
+          <p class="promo-board__compliment-label">${landingContent.compliment.label}</p>
+          <div class="promo-board__compliment-card">
+            <img src="${board.secondaryImage}" alt="${board.secondaryAlt}" />
+          </div>
+        </div>
+
+        <div class="promo-board__qr">
+          <span class="promo-board__qr-icon" aria-hidden="true">${icons['heart-outline']}</span>
+          <strong>${board.qrTitle}</strong>
+          <span>${board.qrCaption}</span>
+        </div>
+
+        <div class="promo-board__benefits">
+          ${board.benefits
+            .map(
+              (item) => `
+                <span>
+                  <i aria-hidden="true">${icons[item.icon]}</i>
+                  <em>${item.label}</em>
+                </span>
+              `,
+            )
+            .join('')}
+        </div>
+      </div>
+    </article>
+  `;
+};
+
+const renderHeroPoster = () => {
+  const heroRoot = document.getElementById('hero');
+  const board = landingContent.showcase.boards[0];
+  if (!heroRoot || !board) return;
+
+  heroRoot.innerHTML = `
+    <div class="hero__poster">
+      ${buildPromoBoard(board, { titleTag: 'h1', titleId: 'hero-script', extraClass: 'promo-board--hero' })}
+    </div>
+
+    <div class="hero__foot">
+      <div class="hero__summary">
+        <p class="hero__eyebrow">${landingContent.hero.eyebrow}</p>
+        <p class="hero__summary-text">${landingContent.hero.description}</p>
+      </div>
+
+      <div class="hero__actions">
+        <a class="button button--primary" href="${landingContent.hero.primaryCta.href}">${landingContent.hero.primaryCta.label}</a>
+        <a class="button button--secondary" href="${landingContent.hero.secondaryCta.href}" target="_blank" rel="noreferrer">
+          ${landingContent.hero.secondaryCta.label}
+        </a>
+      </div>
+    </div>
+  `;
+};
+
 const renderShowcase = () => {
-  const showcaseRoot = document.getElementById('showcase-list');
-  if (!showcaseRoot) return;
-
-  showcaseRoot.innerHTML = landingContent.showcase.boards
-    .map(
-      (board) => `
-        <article class="promo-board">
-          <div class="promo-board__badge">
-            <span class="promo-board__badge-icon" aria-hidden="true">${icons.butterfly}</span>
-            <p class="promo-board__badge-text">${landingContent.badgeLines.join('<br />')}</p>
-            <span class="promo-board__badge-heart" aria-hidden="true">${icons['heart-outline']}</span>
-          </div>
-
-          <div class="promo-board__content">
-            ${board.eyebrow ? `<p class="promo-board__eyebrow">${board.eyebrow}</p>` : ''}
-            <p class="promo-board__lead">${board.lead}</p>
-            <div class="promo-board__script-row">
-              <h3 class="promo-board__script">${board.script}</h3>
-              <span class="promo-board__script-heart" aria-hidden="true">${icons['heart-outline']}</span>
-            </div>
-            <p class="promo-board__subhead">${board.subhead}</p>
-            <div class="promo-board__description-row">
-              ${
-                board.descriptionIcon
-                  ? `<span class="promo-board__description-icon" aria-hidden="true">${icons[board.descriptionIcon]}</span>`
-                  : ''
-              }
-              <p class="promo-board__description">${board.description}</p>
-            </div>
-
-            <div class="promo-board__offers">
-              ${landingContent.promos
-                .map(
-                  (promo) => `
-                    <article class="promo-board__offer">
-                      <span class="promo-board__offer-icon" aria-hidden="true">${icons[promo.icon]}</span>
-                      <div>
-                        <strong>${promo.accent}</strong>
-                        ${promo.title ? `<span>${promo.title}</span>` : ''}
-                        ${promo.note ? `<small>${promo.note}</small>` : ''}
-                      </div>
-                    </article>
-                  `,
-                )
-                .join('')}
-            </div>
-          </div>
-
-          <div class="promo-board__visual">
-            <figure class="promo-board__hero-media">
-              <img src="${board.heroImage}" alt="${board.heroAlt}" />
-            </figure>
-
-            <div class="promo-board__compliment">
-              <p class="promo-board__compliment-label">${landingContent.compliment.label}</p>
-              <div class="promo-board__compliment-card">
-                <img src="${board.secondaryImage}" alt="${board.secondaryAlt}" />
-              </div>
-            </div>
-
-            <div class="promo-board__qr">
-              <span class="promo-board__qr-icon" aria-hidden="true">${icons['heart-outline']}</span>
-              <strong>${board.qrTitle}</strong>
-              <span>${board.qrCaption}</span>
-            </div>
-
-            <div class="promo-board__benefits">
-              ${board.benefits
-                .map(
-                  (item) => `
-                    <span>
-                      <i aria-hidden="true">${icons[item.icon]}</i>
-                      <em>${item.label}</em>
-                    </span>
-                  `,
-                )
-                .join('')}
-            </div>
-          </div>
-        </article>
-      `,
-    )
-    .join('');
+  const showcaseSection = document.getElementById('showcase');
+  if (showcaseSection) {
+    showcaseSection.remove();
+  }
 };
 
 const renderWorks = () => {
@@ -418,7 +450,7 @@ const setupReveal = () => {
 decorateIcons();
 renderNav();
 wireContent();
-renderHeroStats();
+renderHeroPoster();
 renderShowcase();
 renderCollections();
 renderWorks();
