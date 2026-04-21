@@ -213,12 +213,13 @@ a {
 
 .hero__lead {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 4.15rem);
+  font-size: clamp(1rem, 1.9vw, 1.45rem);
   font-weight: 800;
-  letter-spacing: 0.18em;
-  line-height: 0.95;
+  letter-spacing: 0.16em;
+  line-height: 1.25;
   text-transform: uppercase;
   color: var(--accent);
+  white-space: pre-line;
 }
 
 .hero__script-row {
@@ -231,10 +232,11 @@ a {
 .hero__script {
   margin: 0;
   font-family: var(--font-script);
-  font-size: clamp(4.1rem, 7.2vw, 7rem);
-  line-height: 0.8;
+  font-size: clamp(3.9rem, 6.5vw, 6.2rem);
+  line-height: 0.82;
   color: #4b3938;
   font-weight: 400;
+  white-space: pre-line;
 }
 
 .hero__script-heart {
@@ -245,10 +247,10 @@ a {
 
 .hero__subhead {
   margin: 0.35rem 0 0;
-  font-size: clamp(1rem, 1.95vw, 1.6rem);
+  font-size: clamp(0.95rem, 1.65vw, 1.3rem);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-soft);
 }
@@ -258,7 +260,7 @@ a {
   grid-template-columns: auto 1fr;
   align-items: start;
   gap: 0.75rem;
-  max-width: 370px;
+  max-width: 430px;
   margin-top: 0.2rem;
 }
 
@@ -747,11 +749,11 @@ a {
   }
 
   .hero__lead {
-    font-size: clamp(1.8rem, 8vw, 3rem);
+    font-size: clamp(0.92rem, 3.9vw, 1.15rem);
   }
 
   .hero__script {
-    font-size: clamp(3.4rem, 15vw, 5.4rem);
+    font-size: clamp(3.15rem, 13vw, 4.8rem);
   }
 
   .hero__script-heart {

@@ -5,11 +5,11 @@ export const landingContent = {
     'С любовью',
   ],
   hero: {
-    lead: 'Домашний',
-    script: 'зефир',
-    subhead: 'С любовью и заботой',
+    lead: 'Домашняя\nкондитерская',
+    script: 'Вся\nв зефире',
+    subhead: 'Зефирные букеты и подарки',
     description:
-      'Нежный десерт из натуральных ингредиентов — для подарка и для себя',
+      'Домашняя кондитерская «Вся в зефире» создаёт нежный зефир, подарочные наборы и десерты для особенных поводов.',
   },
   promos: [
     {
@@ -45,7 +45,7 @@ export const landingContent = {
     },
     {
       icon: 'gift',
-      title: 'Без лишней химии только вкус и эстетика',
+      title: 'Подарочная подача, вкус и эстетика',
     },
   ],
   contact: {
@@ -53,7 +53,7 @@ export const landingContent = {
     telegramUrl: 'https://t.me/tt_zefir39',
     phone: '+7 (906) 239 85 73',
     phoneHref: 'tel:+79062398573',
-    signature: 'С любовью к деталям',
+    signature: 'Вся в зефире',
   },
   assets: {
     heroImage: './assets/images/hero-box-crop.jpg',
