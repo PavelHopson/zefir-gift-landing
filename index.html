@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="Нежный продающий landing page для домашнего зефира в подарочном стиле."
+    />
+    <title>Домашний зефир</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Marck+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <div class="background-veil" aria-hidden="true"></div>
+
+    <div class="page-shell">
+      <div class="page-shell__sprig page-shell__sprig--top-left" data-icon="sprig"></div>
+      <div class="page-shell__sprig page-shell__sprig--top-right" data-icon="sprig"></div>
+      <div class="page-shell__sprig page-shell__sprig--bottom-right" data-icon="sprig"></div>
+
+      <header class="hero reveal" id="hero" aria-labelledby="hero-script">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <div class="hero__badge">
+              <div class="hero__badge-icon" data-icon="butterfly"></div>
+              <p class="hero__badge-text" data-badge>
+                Натуральные ингредиенты<br />
+                Ручная работа<br />
+                С любовью
+              </p>
+              <div class="hero__badge-heart" data-icon="heart-solid"></div>
+            </div>
+
+            <div class="hero__heading">
+              <p class="hero__lead" data-title-lead>Домашний</p>
+              <div class="hero__script-row">
+                <h1 class="hero__script" id="hero-script" data-title-script>зефир</h1>
+                <span class="hero__script-heart" data-icon="heart-outline"></span>
+              </div>
+              <p class="hero__subhead" data-title-subhead>С любовью и заботой</p>
+            </div>
+
+            <div class="hero__description">
+              <span class="hero__description-icon" data-icon="sprig"></span>
+              <p data-hero-description>
+                Нежный десерт из натуральных ингредиентов — для подарка и для себя
+              </p>
+            </div>
+
+            <div class="offer-stack" id="offer-list">
+              <article class="offer-card reveal">
+                <span class="offer-card__icon" aria-hidden="true">
+                  <span data-icon="percent"></span>
+                </span>
+                <div class="offer-card__copy">
+                  <p class="offer-card__headline">
+                    <span>Скидка 15%</span>
+                    <small>на первый заказ</small>
+                  </p>
+                  <p class="offer-card__note">для пациентов нашего партнера</p>
+                </div>
+              </article>
+
+              <article class="offer-card reveal">
+                <span class="offer-card__icon" aria-hidden="true">
+                  <span data-icon="gift"></span>
+                </span>
+                <div class="offer-card__copy">
+                  <p class="offer-card__headline">
+                    <span>Коробочка завитков в подарок</span>
+                  </p>
+                  <p class="offer-card__note">при заказе корзины цветов</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero__aside">
+            <figure class="hero__photo-card">
+              <div class="hero__photo-glow" aria-hidden="true"></div>
+              <img
+                id="hero-image"
+                class="hero__image"
+                src="./assets/images/hero-box-reference.jpg"
+                alt="Коробка с домашним зефиром в форме цветов"
+              />
+            </figure>
+
+            <div class="hero__aside-grid">
+              <section class="detail-card detail-card--dashed reveal" aria-labelledby="compliment-title">
+                <div class="detail-card__eyebrow">
+                  <span data-icon="heart-outline"></span>
+                  <p data-compliment-label>Наш сладкий комплимент</p>
+                  <span data-icon="heart-outline"></span>
+                </div>
+
+                <div class="detail-card__body">
+                  <span class="detail-card__icon" data-icon="gift"></span>
+                  <h2 class="detail-card__title" id="compliment-title" data-compliment-title>
+                    Здесь будет
+                  </h2>
+                  <p class="detail-card__caption" data-compliment-caption>
+                    наша коробочка завитков
+                  </p>
+                </div>
+
+                <div class="detail-card__branch" data-icon="sprig"></div>
+              </section>
+
+              <section class="qr-card reveal" aria-labelledby="qr-title">
+                <div class="qr-card__frame" id="qr-frame">
+                  <img
+                    class="qr-card__image"
+                    src="./assets/icons/qr-placeholder.svg"
+                    alt="Заглушка для QR-кода"
+                  />
+                </div>
+
+                <div class="qr-card__copy">
+                  <h2 class="qr-card__title" id="qr-title" data-qr-title>Место</h2>
+                  <p class="qr-card__caption" data-qr-caption>для QR-кода</p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-main">
+        <section class="benefits reveal" aria-labelledby="benefits-heading">
+          <h2 id="benefits-heading" class="visually-hidden">Преимущества</h2>
+          <div class="benefits__grid" id="benefits-list">
+            <article class="benefit-item">
+              <span class="benefit-item__icon" aria-hidden="true">
+                <span data-icon="sprig"></span>
+              </span>
+              <p class="benefit-item__title">Натуральные ингредиенты</p>
+            </article>
+
+            <article class="benefit-item">
+              <span class="benefit-item__icon" aria-hidden="true">
+                <span data-icon="heart-solid"></span>
+              </span>
+              <p class="benefit-item__title">Ручная работа с любовью</p>
+            </article>
+
+            <article class="benefit-item">
+              <span class="benefit-item__icon" aria-hidden="true">
+                <span data-icon="gift"></span>
+              </span>
+              <p class="benefit-item__title">
+                Без лишней химии только вкус и эстетика
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="contact-ribbon reveal" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="visually-hidden">Контакты</h2>
+
+        <div class="contact-ribbon__leaf contact-ribbon__leaf--left" data-icon="sprig"></div>
+        <div class="contact-ribbon__leaf contact-ribbon__leaf--right" data-icon="sprig"></div>
+
+        <div class="contact-ribbon__row">
+          <a
+            class="contact-pill"
+            id="telegram-link"
+            href="https://t.me/tt_zefir39"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="contact-pill__icon" data-icon="telegram"></span>
+            <span data-telegram>@tt_zefir39</span>
+          </a>
+
+          <a class="contact-pill" id="phone-link" href="tel:+79062398573">
+            <span class="contact-pill__icon" data-icon="phone"></span>
+            <span data-phone>+7 (906) 239 85 73</span>
+          </a>
+        </div>
+
+        <p class="contact-ribbon__signature" data-signature>С любовью к деталям</p>
+      </footer>
+    </div>
+
+    <script type="module" src="./scripts/app.js"></script>
+  </body>
+</html>
