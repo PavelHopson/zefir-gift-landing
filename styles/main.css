@@ -498,6 +498,380 @@ a {
   color: var(--text-body);
 }
 
+.showcase-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.promo-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr);
+  gap: clamp(1.3rem, 3vw, 2.5rem);
+  padding: clamp(1.5rem, 3.2vw, 2.5rem);
+  border-radius: 38px;
+  border: 1px solid rgba(232, 207, 211, 0.88);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.8), transparent 24%),
+    radial-gradient(circle at 82% 18%, rgba(247, 219, 225, 0.55), transparent 20%),
+    linear-gradient(135deg, rgba(255, 251, 249, 0.98), rgba(250, 239, 236, 0.96));
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.promo-board::before,
+.promo-board::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  pointer-events: none;
+}
+
+.promo-board::before {
+  top: -60px;
+  right: -30px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 244, 242, 0.95), rgba(255, 244, 242, 0));
+  filter: blur(10px);
+  opacity: 0.86;
+}
+
+.promo-board::after {
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.18), transparent 28%),
+    linear-gradient(300deg, rgba(255, 255, 255, 0.16), transparent 34%);
+  opacity: 0.72;
+}
+
+.promo-board__badge,
+.promo-board__content,
+.promo-board__visual {
+  position: relative;
+  z-index: 1;
+}
+
+.promo-board__badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  width: clamp(118px, 11vw, 154px);
+  aspect-ratio: 1;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.28rem;
+  padding: 0.9rem;
+  border-radius: 50%;
+  text-align: center;
+  color: var(--accent);
+  background: rgba(255, 251, 249, 0.94);
+  border: 1px solid rgba(221, 191, 195, 0.92);
+  box-shadow:
+    inset 0 0 0 5px rgba(255, 255, 255, 0.82),
+    0 16px 26px rgba(215, 180, 184, 0.1);
+}
+
+.promo-board__badge-icon,
+.promo-board__badge-heart {
+  width: 14px;
+  height: 14px;
+}
+
+.promo-board__badge-text {
+  margin: 0;
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1.46;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.promo-board__content {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  padding-top: clamp(6.2rem, 11vw, 8rem);
+}
+
+.promo-board__eyebrow {
+  margin: 0;
+  max-width: 540px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.55;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.promo-board__lead {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.2vw, 2.15rem);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.promo-board__script-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.55rem;
+  margin-top: -0.15rem;
+}
+
+.promo-board__script {
+  margin: 0;
+  font-family: var(--font-script);
+  font-size: clamp(4.15rem, 7.4vw, 6.7rem);
+  line-height: 0.84;
+  font-weight: 400;
+  color: var(--text-main);
+}
+
+.promo-board__script-heart {
+  width: clamp(24px, 2.2vw, 34px);
+  color: var(--accent-soft);
+  margin-bottom: 0.95rem;
+}
+
+.promo-board__subhead {
+  margin: -0.2rem 0 0;
+  font-size: clamp(1rem, 1.8vw, 1.38rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.32;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.promo-board__description {
+  margin: 0.25rem 0 0;
+  max-width: 470px;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--text-body);
+}
+
+.promo-board__offers {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 470px;
+  margin-top: 0.35rem;
+}
+
+.promo-board__offer {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(252, 236, 239, 0.96), rgba(249, 229, 232, 0.92));
+  border: 1px solid rgba(237, 204, 209, 0.9);
+  box-shadow: 0 14px 26px rgba(214, 185, 188, 0.08);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.promo-board__offer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(214, 177, 182, 0.12);
+  border-color: rgba(201, 126, 146, 0.34);
+}
+
+.promo-board__offer-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fffaf8;
+  background: linear-gradient(180deg, #d88ea1 0%, #c97287 100%);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.44);
+}
+
+.promo-board__offer-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.promo-board__offer div {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.promo-board__offer strong,
+.promo-board__offer span {
+  display: block;
+}
+
+.promo-board__offer strong {
+  font-size: 1.06rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.promo-board__offer span {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text-body);
+}
+
+.promo-board__visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 166px;
+  grid-template-areas:
+    "hero hero"
+    "compliment qr"
+    "benefits benefits";
+  gap: 1rem;
+  align-content: start;
+}
+
+.promo-board__hero-media {
+  grid-area: hero;
+  position: relative;
+  min-height: 360px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 48px 48px 32px 32px;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.95), rgba(255, 241, 241, 0)),
+    linear-gradient(180deg, rgba(255, 248, 245, 0.96), rgba(248, 233, 229, 0.96));
+  box-shadow: 0 22px 42px rgba(213, 182, 186, 0.15);
+}
+
+.promo-board__hero-media::before {
+  content: "";
+  position: absolute;
+  inset: 10% 14% auto auto;
+  width: 34%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 250, 246, 0.94), rgba(255, 250, 246, 0));
+  filter: blur(8px);
+  z-index: 0;
+}
+
+.promo-board__hero-media img,
+.promo-board__compliment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.promo-board__hero-media:hover img,
+.promo-board__compliment-card:hover img {
+  transform: scale(1.035);
+}
+
+.promo-board__compliment {
+  grid-area: compliment;
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+}
+
+.promo-board__compliment-label {
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.promo-board__compliment-card {
+  min-height: 240px;
+  overflow: hidden;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 247, 245, 0.96), rgba(249, 237, 233, 0.95));
+  box-shadow: 0 18px 34px rgba(214, 182, 186, 0.15);
+}
+
+.promo-board__qr {
+  grid-area: qr;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.45rem;
+  min-height: 240px;
+  padding: 1rem 0.75rem;
+  border-radius: 28px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255, 245, 244, 0.98), rgba(255, 250, 248, 0.96));
+  border: 1.5px dashed rgba(224, 191, 197, 0.92);
+}
+
+.promo-board__qr-icon {
+  width: 22px;
+  color: var(--accent-soft);
+}
+
+.promo-board__qr strong,
+.promo-board__qr span {
+  display: block;
+}
+
+.promo-board__qr strong {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.promo-board__qr span {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.promo-board__benefits {
+  grid-area: benefits;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 0.1rem;
+  border-top: 1px solid rgba(229, 208, 211, 0.84);
+}
+
+.promo-board__benefits span {
+  display: grid;
+  place-items: center;
+  padding: 1rem 0.85rem 0;
+  min-height: 68px;
+  text-align: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.55;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.promo-board__benefits span + span {
+  border-left: 1px solid rgba(229, 208, 211, 0.84);
+}
+
 .collections {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -977,6 +1351,14 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .promo-board {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-board__content {
+    padding-top: 7rem;
+  }
+
   .works-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
@@ -1024,8 +1406,37 @@ a {
   }
 
   .collections,
-  .advantages {
+  .advantages,
+  .promo-board__benefits {
     grid-template-columns: 1fr;
+  }
+
+  .promo-board {
+    padding-top: 1.25rem;
+  }
+
+  .promo-board__badge {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 0.4rem;
+  }
+
+  .promo-board__content {
+    padding-top: 0;
+  }
+
+  .promo-board__visual {
+    grid-template-columns: 1fr 180px;
+  }
+
+  .promo-board__benefits span {
+    padding: 0.85rem 0.65rem;
+  }
+
+  .promo-board__benefits span + span {
+    border-left: 0;
+    border-top: 1px solid rgba(229, 208, 211, 0.84);
   }
 
   .works-grid {
@@ -1107,6 +1518,52 @@ a {
   .hero__actions {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .promo-board__script {
+    font-size: clamp(3.3rem, 16vw, 4.9rem);
+  }
+
+  .promo-board__script-heart {
+    width: 22px;
+    margin-bottom: 0.56rem;
+  }
+
+  .promo-board__subhead {
+    font-size: 0.95rem;
+  }
+
+  .promo-board__offer {
+    grid-template-columns: 56px 1fr;
+    gap: 0.82rem;
+    padding: 0.9rem;
+  }
+
+  .promo-board__offer-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .promo-board__visual {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero"
+      "compliment"
+      "qr"
+      "benefits";
+  }
+
+  .promo-board__hero-media {
+    min-height: 260px;
+  }
+
+  .promo-board__compliment-card,
+  .promo-board__qr {
+    min-height: 210px;
+  }
+
+  .promo-board__benefits {
+    margin-top: 0;
   }
 
   .button,

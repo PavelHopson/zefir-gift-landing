@@ -126,6 +126,75 @@ const renderCollections = () => {
     .join('');
 };
 
+const renderShowcase = () => {
+  const showcaseRoot = document.getElementById('showcase-list');
+  if (!showcaseRoot) return;
+
+  showcaseRoot.innerHTML = landingContent.showcase.boards
+    .map(
+      (board) => `
+        <article class="promo-board">
+          <div class="promo-board__badge">
+            <span class="promo-board__badge-icon" aria-hidden="true">${icons.butterfly}</span>
+            <p class="promo-board__badge-text">${landingContent.badgeLines.join('<br />')}</p>
+            <span class="promo-board__badge-heart" aria-hidden="true">${icons['heart-outline']}</span>
+          </div>
+
+          <div class="promo-board__content">
+            <p class="promo-board__eyebrow">${board.eyebrow}</p>
+            <p class="promo-board__lead">${board.lead}</p>
+            <div class="promo-board__script-row">
+              <h3 class="promo-board__script">${board.script}</h3>
+              <span class="promo-board__script-heart" aria-hidden="true">${icons['heart-outline']}</span>
+            </div>
+            <p class="promo-board__subhead">${board.subhead}</p>
+            <p class="promo-board__description">${board.description}</p>
+
+            <div class="promo-board__offers">
+              ${landingContent.promos
+                .map(
+                  (promo) => `
+                    <article class="promo-board__offer">
+                      <span class="promo-board__offer-icon" aria-hidden="true">${icons[promo.icon]}</span>
+                      <div>
+                        <strong>${promo.accent}</strong>
+                        <span>${promo.title || promo.note}</span>
+                      </div>
+                    </article>
+                  `,
+                )
+                .join('')}
+            </div>
+          </div>
+
+          <div class="promo-board__visual">
+            <figure class="promo-board__hero-media">
+              <img src="${board.heroImage}" alt="${board.heroAlt}" />
+            </figure>
+
+            <div class="promo-board__compliment">
+              <p class="promo-board__compliment-label">${landingContent.compliment.label}</p>
+              <div class="promo-board__compliment-card">
+                <img src="${board.secondaryImage}" alt="${board.secondaryAlt}" />
+              </div>
+            </div>
+
+            <div class="promo-board__qr">
+              <span class="promo-board__qr-icon" aria-hidden="true">${icons['heart-outline']}</span>
+              <strong>${board.qrTitle}</strong>
+              <span>${board.qrCaption}</span>
+            </div>
+
+            <div class="promo-board__benefits">
+              ${board.benefits.map((item) => `<span>${item}</span>`).join('')}
+            </div>
+          </div>
+        </article>
+      `,
+    )
+    .join('');
+};
+
 const renderWorks = () => {
   const worksRoot = document.getElementById('works-list');
   if (!worksRoot) return;
@@ -244,6 +313,10 @@ const wireContent = () => {
   setText('[data-collections-title]', landingContent.collections.title);
   setText('[data-collections-description]', landingContent.collections.description);
 
+  setText('[data-showcase-kicker]', landingContent.showcase.kicker);
+  setText('[data-showcase-title]', landingContent.showcase.title);
+  setText('[data-showcase-description]', landingContent.showcase.description);
+
   setText('[data-works-kicker]', landingContent.works.kicker);
   setText('[data-works-title]', landingContent.works.title);
   setText('[data-works-description]', landingContent.works.description);
@@ -329,6 +402,7 @@ decorateIcons();
 renderNav();
 wireContent();
 renderHeroStats();
+renderShowcase();
 renderCollections();
 renderWorks();
 renderOffers();
