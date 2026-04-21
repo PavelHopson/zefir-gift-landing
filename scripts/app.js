@@ -115,8 +115,7 @@ const renderQr = () => {
   const qrFrame = document.getElementById('qr-frame');
   if (!qrFrame) return;
 
-  const qrSource =
-    landingContent.assets.qrCode || landingContent.assets.qrPlaceholder;
+  const qrSource = landingContent.assets.qrCode || landingContent.assets.qrPlaceholder;
   const qrAlt = landingContent.assets.qrCode
     ? 'QR-код для быстрого перехода'
     : 'Заглушка для QR-кода';

@@ -10,6 +10,7 @@ zefir-gift-landing/
 │   ├── icons/
 │   │   └── qr-placeholder.svg
 │   └── images/
+│       ├── hero-box-crop.jpg
 │       ├── hero-box-reference.jpg
 │       └── secondary-reference.png
 ├── scripts/
@@ -25,13 +26,13 @@ zefir-gift-landing/
 
 Все основные тексты, контакты и пути к изображениям вынесены в:
 
-- [scripts/content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
+- [content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
 
 Ищи такие блоки:
 
 - `hero` — главный заголовок и описание
 - `promos` — карточки со скидкой и подарком
-- `compliment` — блок "Наш сладкий комплимент"
+- `compliment` — блок “Наш сладкий комплимент”
 - `qr` — подписи QR-блока
 - `benefits` — три преимущества
 - `contact` — Telegram, телефон, подпись
@@ -39,7 +40,7 @@ zefir-gift-landing/
 
 ## Где менять телефон и Telegram
 
-В [scripts/content.js](/E:/projects/zefir-gift-landing/scripts/content.js):
+В [content.js](/E:/projects/zefir-gift-landing/scripts/content.js):
 
 - `contact.telegram`
 - `contact.telegramUrl`
@@ -48,12 +49,18 @@ zefir-gift-landing/
 
 ## Где менять изображение коробки
 
-Есть два варианта:
+Сейчас сайт использует:
 
-1. Заменить файл:
-   - [hero-box-reference.jpg](/E:/projects/zefir-gift-landing/assets/images/hero-box-reference.jpg)
-2. Или поменять путь в:
-   - `assets.heroImage` в [scripts/content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
+- [hero-box-crop.jpg](/E:/projects/zefir-gift-landing/assets/images/hero-box-crop.jpg)
+
+Можно:
+
+1. Заменить сам файл `hero-box-crop.jpg`
+2. Или поменять путь в `assets.heroImage` в [content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
+
+Исходный референс оставлен рядом:
+
+- [hero-box-reference.jpg](/E:/projects/zefir-gift-landing/assets/images/hero-box-reference.jpg)
 
 ## Где менять QR-код
 
@@ -64,17 +71,17 @@ zefir-gift-landing/
 Чтобы поставить настоящий QR-код:
 
 1. Положи свой файл в `assets/icons/` или `assets/images/`
-2. Укажи путь в `assets.qrCode` в [scripts/content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
+2. Укажи путь в `assets.qrCode` в [content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
 
 Если `assets.qrCode` пустой, автоматически используется заглушка.
 
 ## Где менять цвета, радиусы, тени и размеры
 
-Все дизайн-переменные находятся в самом начале:
+Все дизайн-переменные находятся в начале:
 
-- [styles/main.css](/E:/projects/zefir-gift-landing/styles/main.css)
+- [main.css](/E:/projects/zefir-gift-landing/styles/main.css)
 
-Ищи блок `:root`, в нем вынесены:
+Ищи блок `:root`, в нём вынесены:
 
 - цвета
 - тени
@@ -83,15 +90,15 @@ zefir-gift-landing/
 - шрифты
 - transition
 
-## Где менять композицию секций
+## Где менять композицию
 
-Основная HTML-структура находится в:
+Основная HTML-структура:
 
 - [index.html](/E:/projects/zefir-gift-landing/index.html)
 
-Стили композиции и адаптива:
+Композиция и адаптив:
 
-- [styles/main.css](/E:/projects/zefir-gift-landing/styles/main.css)
+- [main.css](/E:/projects/zefir-gift-landing/styles/main.css)
 
 ## Как открыть
 
@@ -100,14 +107,4 @@ zefir-gift-landing/
 Можно:
 
 1. Просто открыть `index.html` в браузере
-2. Или поднять любой простой локальный static server
-
-## Что уже сделано
-
-- адаптив desktop / tablet / mobile
-- мягкая pastel premium-палитра
-- отдельные секции под акцию, подарок, комплимент, QR и контакты
-- переменные для дизайна
-- лёгкие hover-эффекты
-- деликатные reveal-анимации без тяжёлых библиотек
-- отдельные placeholder assets
+2. Или поднять любой простой local static server

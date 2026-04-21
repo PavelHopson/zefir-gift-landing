@@ -56,8 +56,8 @@ export const landingContent = {
     signature: 'С любовью к деталям',
   },
   assets: {
-    heroImage: './assets/images/hero-box-reference.jpg',
-    heroAlt: 'Коробка с домашним зефиром в форме цветов',
+    heroImage: './assets/images/hero-box-crop.jpg',
+    heroAlt: 'Коробка с цветочным домашним зефиром',
     qrCode: '',
     qrPlaceholder: './assets/icons/qr-placeholder.svg',
   },
