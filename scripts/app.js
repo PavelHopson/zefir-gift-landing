@@ -64,6 +64,12 @@ const setText = (selector, value) => {
   });
 };
 
+const setHtml = (selector, value) => {
+  document.querySelectorAll(selector).forEach((node) => {
+    node.innerHTML = value;
+  });
+};
+
 const decorateIcons = () => {
   document.querySelectorAll('[data-icon]').forEach((node) => {
     const iconName = node.getAttribute('data-icon');
@@ -71,6 +77,15 @@ const decorateIcons = () => {
     node.innerHTML = icons[iconName];
     node.setAttribute('aria-hidden', 'true');
   });
+};
+
+const renderNav = () => {
+  const navRoot = document.getElementById('nav-list');
+  if (!navRoot) return;
+
+  navRoot.innerHTML = landingContent.nav
+    .map((item) => `<a href="${item.href}">${item.label}</a>`)
+    .join('');
 };
 
 const renderOffers = () => {
@@ -95,19 +110,94 @@ const renderOffers = () => {
     .join('');
 };
 
+const renderCollections = () => {
+  const collectionsRoot = document.getElementById('collections-list');
+  if (!collectionsRoot) return;
+
+  collectionsRoot.innerHTML = landingContent.collections.items
+    .map(
+      (item) => `
+        <article class="collection-item">
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+        </article>
+      `,
+    )
+    .join('');
+};
+
+const renderWorks = () => {
+  const worksRoot = document.getElementById('works-list');
+  if (!worksRoot) return;
+
+  worksRoot.innerHTML = landingContent.works.items
+    .map((item) => {
+      const media = item.image
+        ? `<div class="work-card__media"><img src="${item.image}" alt="${item.alt}" /></div>`
+        : `
+          <div class="work-card__media work-card__media--placeholder">
+            <span>Добавьте фото новой работы</span>
+          </div>
+        `;
+
+      return `
+        <article class="work-card work-card--${item.tone}">
+          ${media}
+          <div class="work-card__copy">
+            <span class="work-card__tag">${item.tag}</span>
+            <h3>${item.title}</h3>
+            <p>${item.note}</p>
+          </div>
+        </article>
+      `;
+    })
+    .join('');
+};
+
 const renderBenefits = () => {
   const benefitsRoot = document.getElementById('benefits-list');
   if (!benefitsRoot) return;
 
-  benefitsRoot.innerHTML = landingContent.benefits
+  benefitsRoot.innerHTML = landingContent.benefits.items
     .map(
       (item) => `
-        <article class="benefit-item">
-          <span class="benefit-item__icon" aria-hidden="true">${icons[item.icon]}</span>
-          <p class="benefit-item__title">${item.title}</p>
+        <article class="advantage-item">
+          <span class="advantage-item__icon" aria-hidden="true">${icons[item.icon]}</span>
+          <div>
+            <h3>${item.title}</h3>
+            <p>${item.note}</p>
+          </div>
         </article>
       `,
     )
+    .join('');
+};
+
+const renderProcess = () => {
+  const processRoot = document.getElementById('process-list');
+  if (!processRoot) return;
+
+  processRoot.innerHTML = landingContent.process.steps
+    .map(
+      (step, index) => `
+        <article class="order-step">
+          <span class="order-step__index">${String(index + 1).padStart(2, '0')}</span>
+          <div>
+            <h3>${step.title}</h3>
+            <p>${step.note}</p>
+          </div>
+        </article>
+      `,
+    )
+    .join('');
+};
+
+const renderHeroStats = () => {
+  const statsRoot = document.getElementById('hero-stats');
+  if (!statsRoot) return;
+
+  statsRoot.innerHTML = landingContent.hero.stats
+    .map((item) => `<div class="hero-chip"><strong>${item.value}</strong><span>${item.label}</span></div>`)
     .join('');
 };
 
@@ -134,15 +224,35 @@ const wireContent = () => {
   const telegramLink = document.getElementById('telegram-link');
   const phoneLink = document.getElementById('phone-link');
   const badge = document.querySelector('[data-badge]');
+  const headerCta = document.querySelector('.site-header__cta');
+  const heroPrimary = document.querySelector('[data-hero-primary]');
+  const heroSecondary = document.querySelector('[data-hero-secondary]');
 
   if (badge) {
     badge.innerHTML = landingContent.badgeLines.join('<br>');
   }
 
-  setText('[data-title-lead]', landingContent.hero.lead);
-  setText('[data-title-script]', landingContent.hero.script);
+  setText('[data-brand-label]', landingContent.brand.label);
+  setText('[data-brand-name]', landingContent.brand.name);
+  setText('[data-hero-eyebrow]', landingContent.hero.eyebrow);
+  setHtml('[data-title-lead]', landingContent.hero.lead.replaceAll('\n', '<br />'));
+  setHtml('[data-title-script]', landingContent.hero.script.replaceAll('\n', '<br />'));
   setText('[data-title-subhead]', landingContent.hero.subhead);
   setText('[data-hero-description]', landingContent.hero.description);
+
+  setText('[data-collections-kicker]', landingContent.collections.kicker);
+  setText('[data-collections-title]', landingContent.collections.title);
+  setText('[data-collections-description]', landingContent.collections.description);
+
+  setText('[data-works-kicker]', landingContent.works.kicker);
+  setText('[data-works-title]', landingContent.works.title);
+  setText('[data-works-description]', landingContent.works.description);
+
+  setText('[data-benefits-kicker]', landingContent.benefits.kicker);
+  setText('[data-benefits-title]', landingContent.benefits.title);
+
+  setText('[data-process-kicker]', landingContent.process.kicker);
+  setText('[data-process-title]', landingContent.process.title);
 
   setText('[data-compliment-label]', landingContent.compliment.label);
   setText('[data-compliment-title]', landingContent.compliment.title);
@@ -151,9 +261,26 @@ const wireContent = () => {
   setText('[data-qr-title]', landingContent.qr.title);
   setText('[data-qr-caption]', landingContent.qr.caption);
 
+  setText('[data-contact-kicker]', landingContent.contact.kicker);
+  setText('[data-contact-title]', landingContent.contact.title);
+  setText('[data-contact-description]', landingContent.contact.description);
   setText('[data-telegram]', landingContent.contact.telegram);
   setText('[data-phone]', landingContent.contact.phone);
   setText('[data-signature]', landingContent.contact.signature);
+
+  if (headerCta) {
+    headerCta.href = landingContent.contact.telegramUrl;
+  }
+
+  if (heroPrimary) {
+    heroPrimary.href = landingContent.hero.primaryCta.href;
+    heroPrimary.textContent = landingContent.hero.primaryCta.label;
+  }
+
+  if (heroSecondary) {
+    heroSecondary.href = landingContent.hero.secondaryCta.href;
+    heroSecondary.textContent = landingContent.hero.secondaryCta.label;
+  }
 
   if (heroImage) {
     heroImage.src = landingContent.assets.heroImage;
@@ -188,19 +315,24 @@ const setupReveal = () => {
     },
     {
       rootMargin: '0px 0px -8% 0px',
-      threshold: 0.2,
+      threshold: 0.15,
     },
   );
 
   reveals.forEach((element, index) => {
-    element.style.setProperty('--delay', `${index * 60}ms`);
+    element.style.setProperty('--delay', `${index * 50}ms`);
     observer.observe(element);
   });
 };
 
 decorateIcons();
+renderNav();
 wireContent();
+renderHeroStats();
+renderCollections();
+renderWorks();
 renderOffers();
 renderBenefits();
+renderProcess();
 renderQr();
 setupReveal();

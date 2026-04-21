@@ -1,6 +1,16 @@
-# Zefir Gift Landing
+# Вся в зефире
 
-Нежный адаптивный landing page для домашнего зефира в подарочном стиле.
+Сайт-витрина домашней кондитерской `«Вся в зефире»`.
+
+Теперь это не одна карточка, а полноценный одностраничный сайт со структурой:
+
+- брендовый hero
+- блок коллекций
+- галерея работ
+- спецпредложения
+- преимущества
+- сценарий заказа
+- контактный финальный блок
 
 ## Структура
 
@@ -12,7 +22,13 @@ zefir-gift-landing/
 │   └── images/
 │       ├── hero-box-crop.jpg
 │       ├── hero-box-reference.jpg
-│       └── secondary-reference.png
+│       ├── secondary-reference.png
+│       ├── work-box-1.jpg
+│       ├── work-box-2.jpg
+│       ├── work-bouquet-1.jpg
+│       ├── work-bouquet-2.jpg
+│       ├── work-bouquet-3.jpg
+│       └── work-detail-1.jpg
 ├── scripts/
 │   ├── app.js
 │   └── content.js
@@ -24,19 +40,56 @@ zefir-gift-landing/
 
 ## Где менять контент
 
-Все основные тексты, контакты и пути к изображениям вынесены в:
+Все тексты, ссылки, названия секций и галерея вынесены в:
 
 - [content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
 
-Ищи такие блоки:
+Основные блоки:
 
-- `hero` — главный заголовок и описание
-- `promos` — карточки со скидкой и подарком
-- `compliment` — блок “Наш сладкий комплимент”
-- `qr` — подписи QR-блока
-- `benefits` — три преимущества
-- `contact` — Telegram, телефон, подпись
-- `assets` — пути к фото и QR
+- `brand` — название и подпись бренда
+- `nav` — пункты меню
+- `hero` — первый экран
+- `promos` — спецпредложения
+- `collections` — основные направления
+- `works` — галерея работ
+- `benefits` — преимущества
+- `process` — шаги заказа
+- `contact` — финальный контактный блок
+- `qr` — подпись к QR
+- `assets` — главная картинка и QR
+
+## Где менять галерею работ
+
+В [content.js](/E:/projects/zefir-gift-landing/scripts/content.js) ищи `works.items`.
+
+У каждой работы есть:
+
+- `title`
+- `tag`
+- `note`
+- `image`
+- `alt`
+- `tone`
+
+`tone` управляет размером карточки в сетке:
+
+- `large`
+- `square`
+- `portrait`
+- `poster`
+- `placeholder`
+
+## Где менять фото
+
+Сейчас для витрины используются изображения из:
+
+- [assets/images](/E:/projects/zefir-gift-landing/assets/images)
+
+Можно:
+
+1. Заменить существующие файлы
+2. Или поменять пути в `works.items[].image`
+3. И отдельно поменять главный hero-image в `assets.heroImage`
 
 ## Где менять телефон и Telegram
 
@@ -47,64 +100,36 @@ zefir-gift-landing/
 - `contact.phone`
 - `contact.phoneHref`
 
-## Где менять изображение коробки
+## Где менять цвета и стили
 
-Сейчас сайт использует:
-
-- [hero-box-crop.jpg](/E:/projects/zefir-gift-landing/assets/images/hero-box-crop.jpg)
-
-Можно:
-
-1. Заменить сам файл `hero-box-crop.jpg`
-2. Или поменять путь в `assets.heroImage` в [content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
-
-Исходный референс оставлен рядом:
-
-- [hero-box-reference.jpg](/E:/projects/zefir-gift-landing/assets/images/hero-box-reference.jpg)
-
-## Где менять QR-код
-
-По умолчанию используется заглушка:
-
-- [qr-placeholder.svg](/E:/projects/zefir-gift-landing/assets/icons/qr-placeholder.svg)
-
-Чтобы поставить настоящий QR-код:
-
-1. Положи свой файл в `assets/icons/` или `assets/images/`
-2. Укажи путь в `assets.qrCode` в [content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
-
-Если `assets.qrCode` пустой, автоматически используется заглушка.
-
-## Где менять цвета, радиусы, тени и размеры
-
-Все дизайн-переменные находятся в начале:
+Все основные переменные лежат в начале:
 
 - [main.css](/E:/projects/zefir-gift-landing/styles/main.css)
 
-Ищи блок `:root`, в нём вынесены:
+В `:root` вынесены:
 
 - цвета
 - тени
 - радиусы
 - контейнер
 - шрифты
-- transition
+- переходы
 
-## Где менять композицию
+## Где менять структуру секций
 
-Основная HTML-структура:
+Главная разметка:
 
 - [index.html](/E:/projects/zefir-gift-landing/index.html)
 
-Композиция и адаптив:
+Логика рендера секций:
 
-- [main.css](/E:/projects/zefir-gift-landing/styles/main.css)
+- [app.js](/E:/projects/zefir-gift-landing/scripts/app.js)
 
 ## Как открыть
 
-Это статический проект без сборщика.
+Проект статический, без сборщика.
 
 Можно:
 
-1. Просто открыть `index.html` в браузере
+1. Открыть `index.html` в браузере
 2. Или поднять любой простой local static server
