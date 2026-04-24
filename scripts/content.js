@@ -9,6 +9,7 @@ export const landingContent = {
   nav: [
     { label: 'Коллекция', href: '#collection' },
     { label: 'Прайс', href: '#pricelist' },
+    { label: 'Акции', href: '#promos' },
     { label: 'Процесс', href: '#process' },
     { label: 'Контакт', href: '#contact' },
   ],
@@ -181,6 +182,35 @@ export const landingContent = {
         accent: '#C49A8F',
       },
     ],
+  },
+
+  promos: {
+    kicker: 'Сладкие бонусы',
+    title: 'С любовью и заботой',
+    description: 'Первый заказ — со скидкой. К каждой корзине цветов — коробочка завитков в подарок. Маленькие детали, которые мы любим.',
+    items: [
+      {
+        icon: 'percent',
+        label: '−15%',
+        sub: 'на первый заказ',
+        note: 'при предъявлении купона из Telegram',
+      },
+      {
+        icon: 'gift',
+        label: 'Коробочка',
+        sub: 'завитков в подарок',
+        note: 'при заказе корзины цветов',
+      },
+      {
+        icon: 'heart',
+        label: 'С любовью',
+        sub: 'к деталям',
+        note: 'каждый заказ собираем руками',
+      },
+    ],
+    ctaLabel: 'Забрать купон в Telegram',
+    ctaHref: 'https://t.me/tt_zefir39',
+    signature: '@tt_zefir39 · +7 (906) 239-85-73',
   },
 
   priceListStrip: {

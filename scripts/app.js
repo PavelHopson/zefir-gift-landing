@@ -184,6 +184,37 @@ function renderCollection() {
   }).join('');
 }
 
+/* ── PROMOS ──────────────────────────────────────────────── */
+function renderPromos() {
+  const { promos } = landingContent;
+  if (!promos) return;
+  setText('[data-promos-kicker]', promos.kicker);
+  setText('[data-promos-title]', promos.title);
+  setText('[data-promos-description]', promos.description);
+  setText('[data-promos-signature]', promos.signature);
+
+  const icons = {
+    percent: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>',
+    gift: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>',
+    heart: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+  };
+
+  const grid = document.getElementById('promos-grid');
+  if (grid) {
+    grid.innerHTML = promos.items.map((p, i) => `
+      <article class="promo-card" style="--delay: ${i * 80}ms">
+        <span class="promo-card__icon" aria-hidden="true">${icons[p.icon] || ''}</span>
+        <p class="promo-card__label">${esc(p.label)}</p>
+        <p class="promo-card__sub">${esc(p.sub)}</p>
+        <p class="promo-card__note">${esc(p.note)}</p>
+      </article>
+    `).join('');
+  }
+
+  const cta = document.getElementById('promos-cta');
+  if (cta) { cta.textContent = promos.ctaLabel; cta.href = promos.ctaHref; }
+}
+
 /* ── PROCESS ──────────────────────────────────────────────── */
 function renderProcess() {
   const { process } = landingContent;
@@ -332,6 +363,7 @@ function init() {
   renderManifesto();
   renderPriceStrip();
   renderCollection();
+  renderPromos();
   renderProcess();
   renderSocial();
   renderContact();
