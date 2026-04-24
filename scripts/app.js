@@ -132,21 +132,41 @@ function renderCollection() {
         }</div>`
       : '';
 
-    const hasImage = Boolean(item.image);
-    const imageMarkup = hasImage
-      ? `<img src="${esc(item.image)}" alt="${esc(item.imageAlt)}" loading="lazy" onerror="this.parentElement.classList.add('collection__image--placeholder');this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<span>'+this.parentElement.querySelector('.collection__num').textContent.trim()+'</span>');" />`
-      : `<span>${esc(item.title)}</span>`;
+    const images = Array.isArray(item.images) ? item.images : [];
+    const main = images[0];
+    const behind = images[1];
+    const tape = item.tapeColor || 'rgba(232, 197, 206, 0.72)';
 
-    const imageClass = hasImage
-      ? 'collection__image'
-      : 'collection__image collection__image--placeholder';
+    const galleryMarkup = main
+      ? `
+        <figure class="collection__gallery" style="--accent-fill: ${esc(item.accent || '#E8C5C5')}; --tape: ${esc(tape)}">
+          ${behind ? `
+            <div class="collection__photo collection__photo--behind" style="--tilt: ${Number(behind.tilt) || 5}deg">
+              <div class="collection__photo-inner">
+                <img src="${esc(behind.src)}" alt="${esc(behind.alt || '')}" loading="lazy" />
+              </div>
+            </div>
+          ` : ''}
+          <div class="collection__photo collection__photo--main" style="--tilt: ${Number(main.tilt) || -3}deg">
+            <span class="collection__tape" aria-hidden="true"></span>
+            <span class="collection__num">№ ${esc(item.num)}</span>
+            <div class="collection__photo-inner">
+              <img src="${esc(main.src)}" alt="${esc(main.alt || item.title)}" loading="lazy" />
+            </div>
+            ${main.caption ? `<figcaption class="collection__caption">${esc(main.caption)}</figcaption>` : ''}
+          </div>
+        </figure>
+      `
+      : `
+        <figure class="collection__gallery collection__gallery--placeholder" style="--accent-fill: ${esc(item.accent || '#E8C5C5')}">
+          <span class="collection__num">№ ${esc(item.num)}</span>
+          <span>${esc(item.title)}</span>
+        </figure>
+      `;
 
     return `
       <article class="collection__item${reverse} reveal" id="${esc(item.id)}">
-        <figure class="${imageClass}" style="--accent-fill: ${esc(item.accent)}">
-          <span class="collection__num">№ ${esc(item.num)}</span>
-          ${imageMarkup}
-        </figure>
+        ${galleryMarkup}
         <div class="collection__body">
           <p class="collection__category">${esc(item.category)}</p>
           <h3 class="collection__title">${esc(item.title)}</h3>

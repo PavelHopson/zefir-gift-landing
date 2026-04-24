@@ -69,9 +69,12 @@ export const landingContent = {
           { label: '8 шт', price: '800' },
           { label: '4 шт', price: '400' },
         ],
-        flavors: ['яблоко', 'смородина', 'клубника', 'апельсин', 'черника', 'малина'],
-        image: 'assets/images/work-box-2.jpg',
-        imageAlt: 'Зефирные завитки в коробке',
+        flavors: ['яблоко', 'чёрная смородина', 'малина', 'клубника', 'вишня', 'апельсин', 'черника'],
+        images: [
+          { src: 'assets/images/zavitki-classic-box.jpg', alt: 'Коробка классических зефирных завитков', tilt: -3, caption: 'ягодная классика' },
+          { src: 'assets/images/zavitki-white-mint.jpg', alt: 'Белые завитки в мятной упаковке', tilt: 5 },
+        ],
+        tapeColor: 'rgba(232, 197, 206, 0.72)',
         accent: '#D8AFB8',
       },
       {
@@ -88,8 +91,11 @@ export const landingContent = {
           { label: '4 шт', price: '500' },
         ],
         flavors: ['пряный латте', 'банановый с начинкой'],
-        image: 'assets/images/hero-box-crop.jpg',
-        imageAlt: 'Авторские зефирные завитки',
+        images: [
+          { src: 'assets/images/zavitki-butterfly-gift.jpg', alt: 'Подарочные коробки авторских завитков', tilt: -4, caption: 'с характером' },
+          { src: 'assets/images/zavitki-rainbow-collage.jpg', alt: 'Цветные коробки завитков', tilt: 6 },
+        ],
+        tapeColor: 'rgba(197, 180, 205, 0.72)',
         accent: '#B08A9F',
       },
       {
@@ -105,8 +111,11 @@ export const landingContent = {
           { label: 'цветок хризантемы или пион', price: '500' },
         ],
         flavors: [],
-        image: 'assets/images/work-detail-1.jpg',
-        imageAlt: 'Комплимент — мини-набор зефира',
+        images: [
+          { src: 'assets/images/compliment-rose-dome.jpg', alt: 'Зефирная роза под прозрачным куполом', tilt: -4, caption: 'роза под куполом' },
+          { src: 'assets/images/compliment-mushroom-gifts.jpg', alt: 'Миниатюрные коробочки с грибочками', tilt: 5 },
+        ],
+        tapeColor: 'rgba(232, 197, 197, 0.72)',
         accent: '#E8C5C5',
       },
       {
@@ -124,8 +133,11 @@ export const landingContent = {
           { label: 'шляпная d=18', price: '1400' },
         ],
         flavors: [],
-        image: 'assets/images/work-box-1.jpg',
-        imageAlt: 'Зефирные грибочки',
+        images: [
+          { src: 'assets/images/mushrooms-autumn-basket.jpg', alt: 'Корзина с зефирными грибочками и листьями', tilt: -3, caption: 'лесная сказка' },
+          { src: 'assets/images/mushrooms-boletus-pile.jpg', alt: 'Крупный план зефирных боровиков', tilt: 5 },
+        ],
+        tapeColor: 'rgba(196, 165, 132, 0.7)',
         accent: '#9E8B73',
       },
       {
@@ -134,15 +146,17 @@ export const landingContent = {
         category: 'Десерт',
         title: 'Чизкейки',
         tagline: 'Плотный, сливочный, как обещали',
-        description: 'Настоящий домашний чизкейк с характером. Семь авторских вкусов — от классического шоколадного до карамельного сникерса.',
+        description: 'Настоящий домашний чизкейк с характером. Восемь авторских вкусов — от классического «трёх шоколадов» до карамельного сникерса и нежного тирамису.',
         priceFrom: '1200',
         sizes: [
           { label: 'd=16 см', price: '1200' },
           { label: 'd=18 см', price: '1500' },
         ],
-        flavors: ['три шоколада', 'сникерс', 'марс', 'твикс', 'брауни', 'тирамису', 'милка'],
-        image: 'assets/images/secondary-reference.png',
-        imageAlt: 'Чизкейк ручной работы',
+        flavors: ['три шоколада', 'сникерс', 'баунти', 'марс', 'твикс', 'милка', 'тирамису', 'брауни'],
+        images: [
+          { src: 'assets/images/cheesecake-snickers.jpg', alt: 'Шоколадный чизкейк с карамельно-ореховой глазурью', tilt: -2, caption: 'сникерс' },
+        ],
+        tapeColor: 'rgba(196, 165, 132, 0.7)',
         accent: '#C4A584',
       },
       {
@@ -159,8 +173,11 @@ export const landingContent = {
           { label: 'свадебный / юбилейный', price: 'по запросу' },
         ],
         flavors: [],
-        image: 'assets/images/hero-box-reference.jpg',
-        imageAlt: 'Букет из зефирных цветов',
+        images: [
+          { src: 'assets/images/bouquet-pink-roses-basket.jpg', alt: 'Большая корзина пыльно-розовых роз', tilt: -3, caption: 'флагман' },
+          { src: 'assets/images/bouquet-pink-peonies.jpg', alt: 'Букет розовых пионов', tilt: 6 },
+        ],
+        tapeColor: 'rgba(213, 223, 208, 0.72)',
         accent: '#C49A8F',
       },
     ],
