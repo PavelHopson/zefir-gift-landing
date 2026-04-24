@@ -2,398 +2,185 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Вся в зефире — домашняя кондитерская с витриной работ, зефирными букетами, подарочными наборами и сладкими композициями ручной работы."
-    />
-    <title>Вся в зефире — домашняя кондитерская</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#F7EBE4" />
+    <meta name="description" content="Вся в Зефире — домашняя кондитерская в Калининграде. Зефирные букеты, авторские завитки, грибочки, чизкейки и съедобные композиции ручной работы. От 400 ₽." />
+    <meta name="keywords" content="зефир Калининград, зефирные букеты, авторский зефир, грибочки зефирные, домашний зефир, съедобный букет" />
+
+    <meta property="og:title" content="Вся в Зефире — домашняя кондитерская" />
+    <meta property="og:description" content="Съедобные букеты, авторские завитки, зефирные грибочки и десерты ручной работы. Калининград, доставка." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <title>Вся в Зефире · Домашняя кондитерская Калининград</title>
+
+    <link rel="icon" type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F7EBE4'/%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-style='italic' font-size='17' fill='%23C9506B'%3EЗ%3C/text%3E%3C/svg%3E" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Marck+Script&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Manrope:wght@300;400;500;600;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
+
   <body>
-    <div class="background-veil" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-    <div class="page-shell">
-      <div class="page-shell__sprig page-shell__sprig--top-left" data-icon="sprig"></div>
-      <div class="page-shell__sprig page-shell__sprig--top-right" data-icon="sprig"></div>
-      <div class="page-shell__sprig page-shell__sprig--bottom-right" data-icon="sprig"></div>
+    <svg class="ornament ornament--top-left" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M 20 20 Q 50 10 80 30 Q 70 60 40 70 Q 15 55 20 20 Z" fill="currentColor" opacity="0.08" />
+    </svg>
+    <svg class="ornament ornament--bottom-right" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="30" fill="currentColor" opacity="0.06" />
+      <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.15" />
+    </svg>
 
-      <header class="site-header reveal">
-        <a class="site-header__brand" href="#hero">
-          <span class="site-header__label" data-brand-label>Домашняя кондитерская</span>
-          <span class="site-header__name" data-brand-name>Вся в зефире</span>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="#top">
+          <span class="brand__label" data-brand-label></span>
+          <span class="brand__name" data-brand-name>Вся в Зефире</span>
         </a>
 
-        <nav class="site-header__nav" aria-label="Основная навигация">
-          <div class="site-header__nav-list" id="nav-list">
-            <a href="#collections">Коллекции</a>
-            <a href="#works">Работы</a>
-            <a href="#order">Заказ</a>
-            <a href="#contacts">Контакты</a>
-          </div>
+        <nav class="site-nav" aria-label="Навигация">
+          <ul id="nav-list"></ul>
         </nav>
 
-        <a
-          class="site-header__cta"
-          href="https://t.me/tt_zefir39"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Заказать
-        </a>
-      </header>
-
-      <main>
-        <section class="hero reveal" id="hero" aria-labelledby="hero-script">
-          <div class="hero__grid">
-            <div class="hero__content">
-              <div class="hero__badge">
-                <div class="hero__badge-icon" data-icon="butterfly"></div>
-                <p class="hero__badge-text" data-badge>
-                  Натуральные ингредиенты<br />
-                  Ручная работа<br />
-                  Подарочная подача
-                </p>
-                <div class="hero__badge-heart" data-icon="heart-solid"></div>
-              </div>
-
-              <p class="hero__eyebrow" data-hero-eyebrow>
-                Зефирные букеты, наборы и десерты для подарка и для себя
-              </p>
-
-              <div class="hero__heading">
-                <p class="hero__lead" data-title-lead>Домашняя<br />кондитерская</p>
-                <div class="hero__script-row">
-                  <h1 class="hero__script" id="hero-script" data-title-script>Вся<br />в зефире</h1>
-                  <span class="hero__script-heart" data-icon="heart-outline"></span>
-                </div>
-                <p class="hero__subhead" data-title-subhead>
-                  Создаём съедобные букеты и красивые сладкие композиции
-                </p>
-              </div>
-
-              <div class="hero__description">
-                <span class="hero__description-icon" data-icon="sprig"></span>
-                <p data-hero-description>
-                  Показываем не одну открытку, а целую витрину работ: букеты из зефира, подарочные коробки, наборы-комплименты и нежные десерты ручной работы.
-                </p>
-              </div>
-
-              <div class="hero__actions">
-                <a class="button button--primary" href="#works" data-hero-primary>Смотреть работы</a>
-                <a
-                  class="button button--secondary"
-                  href="https://t.me/tt_zefir39"
-                  target="_blank"
-                  rel="noreferrer"
-                  data-hero-secondary
-                >
-                  Заказать в Telegram
-                </a>
-              </div>
-
-              <div class="hero__chips" id="hero-stats">
-                <div class="hero-chip">100% ручная работа</div>
-                <div class="hero-chip">Подарочная подача</div>
-                <div class="hero-chip">Домашняя кондитерская</div>
-              </div>
-            </div>
-
-            <div class="hero__media">
-              <figure class="hero__photo-card">
-                <div class="hero__photo-glow" aria-hidden="true"></div>
-                <img
-                  id="hero-image"
-                  class="hero__image"
-                  src="./assets/images/hero-box-crop.jpg"
-                  alt="Коробка с цветочным домашним зефиром"
-                />
-              </figure>
-            </div>
-          </div>
-        </section>
-
-        <section class="section reveal" id="showcase" aria-labelledby="showcase-title">
-          <div class="section__head">
-            <p class="section__kicker" data-showcase-kicker>Фирменные макеты</p>
-            <h2 class="section__title" id="showcase-title" data-showcase-title>
-              Промо-подача для витрины и соцсетей
-            </h2>
-            <p class="section__description" data-showcase-description>
-              Добавили отдельный рекламный блок в более плакатной эстетике: его можно использовать для сезонных коллекций, сторис, афиш и промо-материалов.
-            </p>
-          </div>
-
-          <div class="showcase-list" id="showcase-list">
-            <article class="promo-board">
-              <div class="promo-board__badge">
-                <span class="promo-board__badge-icon" data-icon="butterfly"></span>
-                <p class="promo-board__badge-text">
-                  Натуральные ингредиенты<br />
-                  Ручная работа<br />
-                  С любовью
-                </p>
-                <span class="promo-board__badge-heart" data-icon="heart-outline"></span>
-              </div>
-
-              <div class="promo-board__content">
-                <p class="promo-board__eyebrow">Фирменная карточка кондитерской «Вся в зефире»</p>
-                <p class="promo-board__lead">Домашний</p>
-                <div class="promo-board__script-row">
-                  <h3 class="promo-board__script">зефир</h3>
-                  <span class="promo-board__script-heart" data-icon="heart-outline"></span>
-                </div>
-                <p class="promo-board__subhead">С любовью и заботой</p>
-                <div class="promo-board__description-row">
-                  <span class="promo-board__description-icon" data-icon="sprig"></span>
-                  <p class="promo-board__description">
-                    Нежный десерт из натуральных ингредиентов — для подарка и для себя
-                  </p>
-                </div>
-
-                <div class="promo-board__offers">
-                  <article class="promo-board__offer">
-                    <span class="promo-board__offer-icon" data-icon="percent"></span>
-                    <div>
-                      <strong>Скидка 15%</strong>
-                      <span>на первый заказ</span>
-                      <small>для пациентов нашего партнера</small>
-                    </div>
-                  </article>
-                  <article class="promo-board__offer">
-                    <span class="promo-board__offer-icon" data-icon="gift"></span>
-                    <div>
-                      <strong>Коробочка завитков в подарок</strong>
-                      <small>при заказе корзины цветов</small>
-                    </div>
-                  </article>
-                </div>
-              </div>
-
-              <div class="promo-board__visual">
-                <figure class="promo-board__hero-media">
-                  <img src="./assets/images/work-box-2.jpg" alt="Подарочная композиция домашнего зефира" />
-                </figure>
-
-                <div class="promo-board__compliment">
-                  <p class="promo-board__compliment-label">Наш сладкий комплимент</p>
-                  <div class="promo-board__compliment-card">
-                    <img src="./assets/images/work-box-1.jpg" alt="Коробочка завитков домашнего зефира" />
-                  </div>
-                </div>
-
-                <div class="promo-board__qr">
-                  <span class="promo-board__qr-icon" data-icon="heart-outline"></span>
-                  <strong>Место</strong>
-                  <span>для QR-кода</span>
-                </div>
-
-                <div class="promo-board__benefits">
-                  <span>
-                    <i data-icon="sprig"></i>
-                    <em>Натуральные ингредиенты</em>
-                  </span>
-                  <span>
-                    <i data-icon="heart-outline"></i>
-                    <em>Ручная работа с любовью</em>
-                  </span>
-                  <span>
-                    <i data-icon="sprig"></i>
-                    <em>Без лишней химии только вкус и эстетика</em>
-                  </span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section reveal" id="collections" aria-labelledby="collections-title">
-          <div class="section__head">
-            <p class="section__kicker" data-collections-kicker>Основные направления</p>
-            <h2 class="section__title" id="collections-title" data-collections-title>Что можно заказать</h2>
-            <p class="section__description" data-collections-description>
-              Собрали основные форматы, которые удобно показывать на сайте и быстро дополнять новыми работами.
-            </p>
-          </div>
-
-          <div class="collections" id="collections-list">
-            <article class="collection-item">
-              <h3>Зефирные букеты</h3>
-              <p>Нежные композиции для дня рождения, свидания, благодарности и семейных праздников.</p>
-            </article>
-            <article class="collection-item">
-              <h3>Подарочные коробки</h3>
-              <p>Коробки с цветочным зефиром, ягодными акцентами и красивой упаковкой под подарок.</p>
-            </article>
-            <article class="collection-item">
-              <h3>Сладкие комплименты</h3>
-              <p>Небольшие наборы, завитки и десерты для приятного повода и заказа в пару к букету.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section reveal" id="works" aria-labelledby="works-title">
-          <div class="section__head">
-            <p class="section__kicker" data-works-kicker>Наши работы</p>
-            <h2 class="section__title" id="works-title" data-works-title>Витрина кондитерской</h2>
-            <p class="section__description" data-works-description>
-              Здесь можно показывать реальные заказы, новые коллекции, сезонные композиции и любимые форматы клиентов.
-            </p>
-          </div>
-
-          <div class="works-grid" id="works-list">
-            <article class="work-card work-card--large">
-              <div class="work-card__media">
-                <img src="./assets/images/hero-box-crop.jpg" alt="Зефирный букет в коробке" />
-              </div>
-              <div class="work-card__copy">
-                <span class="work-card__tag">Букеты</span>
-                <h3>Цветочный букет</h3>
-                <p>Пастельная композиция в подарочной коробке.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section section--split reveal" aria-labelledby="offers-title">
-          <div class="section__head section__head--compact">
-            <p class="section__kicker">Спецпредложения</p>
-            <h2 class="section__title" id="offers-title">Поводы заказать сейчас</h2>
-          </div>
-
-          <div class="offers-layout">
-            <div class="offer-stack" id="offer-list">
-              <article class="offer-card reveal">
-                <span class="offer-card__icon" aria-hidden="true">
-                  <span data-icon="percent"></span>
-                </span>
-                <div class="offer-card__copy">
-                  <p class="offer-card__headline">
-                    <span>Скидка 15%</span>
-                    <small>на первый заказ</small>
-                  </p>
-                  <p class="offer-card__note">для пациентов нашего партнера</p>
-                </div>
-              </article>
-            </div>
-
-            <section class="detail-card detail-card--dashed" aria-labelledby="compliment-title">
-              <div class="detail-card__eyebrow">
-                <span data-icon="heart-outline"></span>
-                <p data-compliment-label>Наш сладкий комплимент</p>
-                <span data-icon="heart-outline"></span>
-              </div>
-
-              <div class="detail-card__body">
-                <span class="detail-card__icon" data-icon="gift"></span>
-                <h2 class="detail-card__title" id="compliment-title" data-compliment-title>Здесь будет</h2>
-                <p class="detail-card__caption" data-compliment-caption>наша коробочка завитков</p>
-              </div>
-
-              <div class="detail-card__branch" data-icon="sprig"></div>
-            </section>
-          </div>
-        </section>
-
-        <section class="section reveal" aria-labelledby="benefits-title">
-          <div class="section__head">
-            <p class="section__kicker" data-benefits-kicker>Почему выбирают нас</p>
-            <h2 class="section__title" id="benefits-title" data-benefits-title>
-              Домашняя кондитерская с подарочным подходом
-            </h2>
-          </div>
-
-          <div class="advantages" id="benefits-list">
-            <article class="advantage-item">
-              <span class="advantage-item__icon" data-icon="sprig"></span>
-              <div>
-                <h3>Натуральные ингредиенты</h3>
-                <p>Ставим вкус и аккуратный состав выше декоративного шума.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section section--split reveal" id="order" aria-labelledby="order-title">
-          <div class="section__head section__head--compact">
-            <p class="section__kicker" data-process-kicker>Как заказать</p>
-            <h2 class="section__title" id="order-title" data-process-title>
-              Простой путь от идеи до готового подарка
-            </h2>
-          </div>
-
-          <div class="order-layout">
-            <div class="order-steps" id="process-list">
-              <article class="order-step">
-                <span class="order-step__index">01</span>
-                <div>
-                  <h3>Показываете пожелание</h3>
-                  <p>Пишете нам в Telegram и присылаете идею или референс.</p>
-                </div>
-              </article>
-            </div>
-
-            <section class="qr-card qr-card--side" aria-labelledby="qr-title">
-              <div class="qr-card__frame" id="qr-frame">
-                <img
-                  class="qr-card__image"
-                  src="./assets/icons/qr-placeholder.svg"
-                  alt="Заглушка для QR-кода"
-                />
-              </div>
-
-              <div class="qr-card__copy">
-                <h2 class="qr-card__title" id="qr-title" data-qr-title>Быстрый переход</h2>
-                <p class="qr-card__caption" data-qr-caption>можно поставить QR-код на Telegram или каталог</p>
-              </div>
-            </section>
-          </div>
-        </section>
-      </main>
-
-      <footer class="contact-ribbon reveal" id="contacts" aria-labelledby="contact-title">
-        <h2 id="contact-title" class="visually-hidden">Контакты</h2>
-
-        <div class="contact-ribbon__leaf contact-ribbon__leaf--left" data-icon="sprig"></div>
-        <div class="contact-ribbon__leaf contact-ribbon__leaf--right" data-icon="sprig"></div>
-
-        <div class="contact-ribbon__intro">
-          <p class="contact-ribbon__kicker" data-contact-kicker>Связаться с нами</p>
-          <h2 class="contact-ribbon__title" data-contact-title>
-            Оформить заказ или запросить каталог работ
-          </h2>
-          <p class="contact-ribbon__description" data-contact-description>
-            Если хочешь, чтобы на сайте были уже все реальные работы, следующим шагом просто подгружаем твои фотографии в эту галерею.
-          </p>
-        </div>
-
-        <div class="contact-ribbon__row">
-          <a
-            class="contact-pill"
-            id="telegram-link"
-            href="https://t.me/tt_zefir39"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="contact-pill__icon" data-icon="telegram"></span>
-            <span data-telegram>@tt_zefir39</span>
+        <div class="site-header__actions">
+          <a class="btn btn--ghost" id="nav-cta-secondary" href="https://instagram.com/tt_zefir39" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-
-          <a class="contact-pill" id="phone-link" href="tel:+79062398573">
-            <span class="contact-pill__icon" data-icon="phone"></span>
-            <span data-phone>+7 (906) 239 85 73</span>
+          <a class="btn btn--primary" href="https://t.me/tt_zefir39" target="_blank" rel="noreferrer">
+            <span>Заказать</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
+          <button class="nav-toggle" id="nav-toggle" aria-label="Меню" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
         </div>
+      </div>
+    </header>
 
-        <p class="contact-ribbon__signature" data-signature>Вся в зефире</p>
-      </footer>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul id="mobile-nav-list"></ul>
+      <a class="btn btn--primary btn--block" href="https://t.me/tt_zefir39" target="_blank" rel="noreferrer">Заказать в Telegram</a>
     </div>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero__kicker reveal" data-hero-kicker></div>
+
+        <div class="hero__title reveal">
+          <div class="hero__title-row">
+            <span class="hero__word hero__word--script" data-hero-top>Вся</span>
+            <svg class="hero__sprig" viewBox="0 0 60 60" aria-hidden="true">
+              <path d="M 30 5 Q 45 20 40 40 Q 30 48 30 55" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M 30 20 Q 22 22 18 28" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M 32 28 Q 42 28 46 22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M 30 38 Q 22 40 20 46" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <ellipse cx="20" cy="28" rx="3" ry="5" transform="rotate(-20 20 28)" fill="currentColor" opacity="0.6"/>
+              <ellipse cx="46" cy="22" rx="3" ry="5" transform="rotate(40 46 22)" fill="currentColor" opacity="0.6"/>
+              <ellipse cx="20" cy="46" rx="3" ry="5" transform="rotate(-30 20 46)" fill="currentColor" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="hero__title-row hero__title-row--mid">
+            <span class="hero__word hero__word--small" data-hero-mid>в</span>
+          </div>
+          <div class="hero__title-row">
+            <span class="hero__word hero__word--serif" data-hero-bottom>Зефире</span>
+          </div>
+        </div>
+
+        <p class="hero__tagline reveal" data-hero-tagline></p>
+        <p class="hero__subline reveal" data-hero-subline></p>
+
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary btn--lg" id="hero-cta-primary" href="#collection"></a>
+          <a class="btn btn--outline btn--lg" id="hero-cta-secondary" href="https://t.me/tt_zefir39" target="_blank" rel="noreferrer"></a>
+        </div>
+
+        <div class="hero__floating reveal" id="hero-floating"></div>
+
+        <div class="hero__scroll" aria-hidden="true">
+          <span>scroll</span>
+          <svg viewBox="0 0 20 40" width="12" height="24"><path d="M 10 4 L 10 32 M 5 26 L 10 32 L 15 26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </section>
+
+      <section class="manifesto reveal">
+        <p class="eyebrow" data-manifesto-kicker></p>
+        <h2 class="section-title" data-manifesto-title></h2>
+        <div class="manifesto__grid" id="manifesto-grid"></div>
+      </section>
+
+      <div class="divider reveal" aria-hidden="true">
+        <svg viewBox="0 0 400 40">
+          <line x1="10" y1="20" x2="180" y2="20" stroke="currentColor" stroke-width="0.5"/>
+          <path d="M 190 20 Q 200 10 210 20 Q 200 30 190 20 Z" fill="currentColor" opacity="0.4"/>
+          <circle cx="200" cy="20" r="1.5" fill="currentColor"/>
+          <line x1="220" y1="20" x2="390" y2="20" stroke="currentColor" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+      <section class="price-strip reveal" id="pricelist">
+        <div class="price-strip__head">
+          <p class="eyebrow" data-price-kicker></p>
+          <h2 class="section-title section-title--center" data-price-title></h2>
+          <p class="section-lead" data-price-description></p>
+        </div>
+        <div class="price-strip__grid" id="price-strip-grid"></div>
+      </section>
+
+      <section class="collection" id="collection">
+        <div class="collection__head reveal">
+          <p class="eyebrow" data-collection-kicker></p>
+          <h2 class="section-title section-title--huge" data-collection-title></h2>
+          <p class="section-lead" data-collection-description></p>
+        </div>
+        <div class="collection__list" id="collection-list"></div>
+      </section>
+
+      <section class="process reveal" id="process">
+        <p class="eyebrow" data-process-kicker></p>
+        <h2 class="section-title" data-process-title></h2>
+        <div class="process__track" id="process-track"></div>
+      </section>
+
+      <section class="social reveal">
+        <p class="eyebrow" data-social-kicker></p>
+        <h2 class="section-title" data-social-title></h2>
+        <div class="social__stats" id="social-stats"></div>
+        <div class="social__quotes" id="social-quotes"></div>
+      </section>
+
+      <section class="contact reveal" id="contact">
+        <div class="contact__inner">
+          <p class="eyebrow" data-contact-kicker></p>
+          <h2 class="contact__title" data-contact-title></h2>
+          <p class="contact__description" data-contact-description></p>
+          <div class="contact__methods" id="contact-methods"></div>
+          <div class="contact__footer">
+            <p class="contact__meta" data-contact-location></p>
+            <p class="contact__meta" data-contact-hours></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <span class="site-footer__name" data-footer-brand>Вся в Зефире</span>
+          <span class="site-footer__tagline" data-footer-tagline></span>
+        </div>
+        <div class="site-footer__meta">
+          <span data-footer-handle></span>
+          <span aria-hidden="true">·</span>
+          <span data-footer-year></span>
+        </div>
+        <p class="site-footer__made" data-footer-made></p>
+      </div>
+    </footer>
 
     <script type="module" src="./scripts/app.js"></script>
   </body>
