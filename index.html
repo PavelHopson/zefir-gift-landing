@@ -11,6 +11,45 @@
     <meta property="og:description" content="Съедобные букеты, авторские завитки, зефирные грибочки и десерты ручной работы. Калининград, доставка." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_RU" />
+    <meta property="og:url" content="https://vsya-v-zefire.pages.dev/" />
+    <meta property="og:image" content="https://vsya-v-zefire.pages.dev/assets/images/bouquet-pink-roses-basket.jpg" />
+    <meta property="og:image:alt" content="Букет из зефирных роз — кондитерская «Вся в Зефире»" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1600" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Вся в Зефире — домашняя кондитерская" />
+    <meta name="twitter:description" content="Съедобные букеты, авторские завитки, грибочки и чизкейки ручной работы. Калининград." />
+    <meta name="twitter:image" content="https://vsya-v-zefire.pages.dev/assets/images/bouquet-pink-roses-basket.jpg" />
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Вся в Зефире",
+      "description": "Домашняя кондитерская в Калининграде. Зефирные букеты, завитки, грибочки, чизкейки.",
+      "image": "https://vsya-v-zefire.pages.dev/assets/images/bouquet-pink-roses-basket.jpg",
+      "url": "https://vsya-v-zefire.pages.dev/",
+      "telephone": "+7-906-239-85-73",
+      "priceRange": "400-5000 ₽",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Калининград",
+        "addressCountry": "RU"
+      },
+      "sameAs": [
+        "https://t.me/tt_zefir39",
+        "https://instagram.com/tt_zefir39",
+        "https://vk.ru/tt_zefir39"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "10:00",
+        "closes": "21:00"
+      }
+    }
+    </script>
 
     <title>Вся в Зефире · Домашняя кондитерская Калининград</title>
 
@@ -26,6 +65,21 @@
 
   <body>
     <div class="grain" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <div class="seasonal" id="seasonal-banner" aria-hidden="true" hidden>
+      <div class="seasonal__inner">
+        <span class="seasonal__emoji" data-seasonal-emoji></span>
+        <div class="seasonal__copy">
+          <span class="seasonal__title" data-seasonal-title></span>
+          <span class="seasonal__desc" data-seasonal-desc></span>
+        </div>
+        <a class="seasonal__cta" id="seasonal-cta" href="" target="_blank" rel="noreferrer"></a>
+        <button class="seasonal__close" id="seasonal-close" aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
 
     <svg class="ornament ornament--top-left" viewBox="0 0 100 100" aria-hidden="true">
       <path d="M 20 20 Q 50 10 80 30 Q 70 60 40 70 Q 15 55 20 20 Z" fill="currentColor" opacity="0.08" />
@@ -68,6 +122,7 @@
 
     <main id="top">
       <section class="hero">
+        <div class="hero__content">
         <div class="hero__kicker reveal" data-hero-kicker></div>
 
         <div class="hero__title reveal">
@@ -105,6 +160,9 @@
           <span>scroll</span>
           <svg viewBox="0 0 20 40" width="12" height="24"><path d="M 10 4 L 10 32 M 5 26 L 10 32 L 15 26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
+        </div>
+
+        <div class="hero__visual reveal" id="hero-visual" aria-hidden="true"></div>
       </section>
 
       <section class="manifesto reveal">
@@ -160,6 +218,38 @@
         <div class="process__track" id="process-track"></div>
       </section>
 
+      <section class="lookbook reveal" id="lookbook" aria-labelledby="lookbook-title">
+        <div class="lookbook__head">
+          <p class="eyebrow" data-lookbook-kicker></p>
+          <h2 class="section-title section-title--center" id="lookbook-title" data-lookbook-title></h2>
+          <p class="section-lead" data-lookbook-description></p>
+        </div>
+        <div class="lookbook__viewport" aria-hidden="true">
+          <div class="lookbook__track" id="lookbook-track"></div>
+        </div>
+        <div class="lookbook__cta-wrap">
+          <a class="btn btn--outline" id="lookbook-cta" href="" target="_blank" rel="noreferrer"></a>
+        </div>
+      </section>
+
+      <section class="faq reveal" id="faq" aria-labelledby="faq-title">
+        <div class="faq__head">
+          <p class="eyebrow" data-faq-kicker></p>
+          <h2 class="section-title section-title--center" id="faq-title" data-faq-title></h2>
+          <p class="section-lead" data-faq-description></p>
+        </div>
+        <div class="faq__list" id="faq-list"></div>
+      </section>
+
+      <section class="map reveal" id="map" aria-labelledby="map-title">
+        <div class="map__head">
+          <p class="eyebrow" data-map-kicker></p>
+          <h2 class="section-title section-title--center" id="map-title" data-map-title></h2>
+          <p class="section-lead" data-map-description></p>
+        </div>
+        <div class="map__frame" id="map-frame"></div>
+      </section>
+
       <section class="social reveal">
         <p class="eyebrow" data-social-kicker></p>
         <h2 class="section-title" data-social-title></h2>
@@ -195,6 +285,23 @@
         <p class="site-footer__made" data-footer-made></p>
       </div>
     </footer>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" hidden>
+      <button class="lightbox__close" id="lightbox-close" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+      <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Предыдущее фото">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <figure class="lightbox__stage">
+        <img id="lightbox-img" alt="" />
+        <figcaption id="lightbox-caption" class="lightbox__caption"></figcaption>
+      </figure>
+      <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Следующее фото">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <p class="lightbox__counter" id="lightbox-counter" aria-live="polite"></p>
+    </div>
 
     <script type="module" src="./scripts/app.js"></script>
   </body>

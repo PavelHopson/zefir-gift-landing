@@ -10,9 +10,19 @@ export const landingContent = {
     { label: 'Коллекция', href: '#collection' },
     { label: 'Прайс', href: '#pricelist' },
     { label: 'Акции', href: '#promos' },
-    { label: 'Процесс', href: '#process' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Контакт', href: '#contact' },
   ],
+
+  // seasonal banner — set active: true to enable; content hot-swappable
+  seasonal: {
+    active: false,
+    emoji: '🌸',
+    title: 'Букеты к 8 марта',
+    description: 'Принимаем заказы до 5 марта. Доставка по Калининграду.',
+    ctaLabel: 'Заказать',
+    ctaHref: 'https://t.me/tt_zefir39',
+  },
 
   hero: {
     kicker: 'est. 2024 · Калининград · @tt_zefir39',
@@ -28,6 +38,14 @@ export const landingContent = {
       { label: 'ручная работа', rotate: 3 },
       { label: 'без консервантов', rotate: -2 },
     ],
+    visual: {
+      // 3 polaroids anchored on the right side of the hero
+      photos: [
+        { src: 'assets/images/bouquet-cream-roses.jpg', alt: 'Букет из кремовых зефирных роз', tilt: -4, caption: 'флагман', top: '4%',  right: '8%',  width: '62%', z: 3 },
+        { src: 'assets/images/mushrooms-boletus-pile.jpg', alt: 'Зефирные боровики крупно',       tilt: 8,  caption: 'грибочки', top: '48%', right: '42%', width: '42%', z: 2 },
+        { src: 'assets/images/zavitki-pink-box.jpg',    alt: 'Розовая коробка с завитками',   tilt: -7, caption: 'завитки', top: '62%', right: '0%',  width: '40%', z: 1 },
+      ],
+    },
   },
 
   manifesto: {
@@ -252,6 +270,64 @@ export const landingContent = {
         text: 'Доставка по Калининграду или самовывоз. Упакуем так, чтобы сразу можно было вручить.',
       },
     ],
+  },
+
+  lookbook: {
+    kicker: 'Lookbook',
+    title: 'Что мы делали в этом сезоне',
+    description: 'Небольшой поток из instagram — без фильтров, как приготовили и отдали.',
+    // photos used only here (not referenced elsewhere) to give them a stage
+    photos: [
+      { src: 'assets/images/zavitki-rainbow-collage.jpg', alt: 'Набор коробок завитков разных цветов' },
+      { src: 'assets/images/bouquet-mixed-basket.jpg',    alt: 'Корзина-микс с розами и пионами' },
+      { src: 'assets/images/zavitki-verticals.jpg',       alt: 'Вертикальный кадр с завитками' },
+      { src: 'assets/images/zavitki-green-purple.jpg',    alt: 'Зелёная и сиреневая коробки' },
+      { src: 'assets/images/compliment-mushroom-gifts.jpg', alt: 'Мини-коробки с грибочками и бантами' },
+      { src: 'assets/images/bouquet-cream-roses.jpg',     alt: 'Букет кремовых роз' },
+      { src: 'assets/images/zavitki-pink-box.jpg',        alt: 'Розовая коробка с завитками' },
+      { src: 'assets/images/bouquet-pink-peonies.jpg',    alt: 'Розовые пионы' },
+    ],
+    ctaLabel: 'Смотреть все работы в Instagram',
+    ctaHref: 'https://instagram.com/tt_zefir39',
+  },
+
+  faq: {
+    kicker: 'Частые вопросы',
+    title: 'Что спрашивают чаще всего',
+    description: 'Быстрые ответы. Если вопроса нет в списке — напишите в Telegram, ответим живым человеком.',
+    items: [
+      {
+        q: 'Сколько хранится зефир?',
+        a: 'Зефир из яблочного пюре на агар-агаре хранится 7-10 дней при комнатной температуре, до 14 дней — в холодильнике в закрытой коробке. Букеты собираем под дату получения, поэтому они всегда свежие.',
+      },
+      {
+        q: 'Сколько делается букет?',
+        a: 'Маленькие композиции (до 12 цветов) собираем за 1-2 дня. Большие корзины и свадебные букеты — 3-5 дней. Срочный заказ «на завтра» обсуждаемо, зависит от загрузки — пишите, подскажем.',
+      },
+      {
+        q: 'Как доставляете?',
+        a: 'По Калининграду — курьером или самовывоз из нашей локации. Доставка от 400 ₽ в зависимости от района. При заказе от 2 000 ₽ по городу — бесплатно. За город и в область — по договорённости.',
+      },
+      {
+        q: 'Есть ли варианты без сахара или для диабетиков?',
+        a: 'Классический зефир на сахаре. По отдельному запросу делаем на фруктозе/эритрите — нужно заказывать заранее (минимум за 3 дня). Скажите при оформлении, если важно.',
+      },
+      {
+        q: 'Что если букет помнётся при доставке?',
+        a: 'Упаковываем в жёсткую коробку с фиксацией цветов. За три года таких случаев не было, но если что-то случится — переделаем и пришлём новый бесплатно. Делаем фото каждого букета перед отправкой.',
+      },
+      {
+        q: 'Можно ли на свадьбу или большое мероприятие?',
+        a: 'Да, работаем со свадьбами и корпоративами. Нужно обсудить заранее — за 2-3 недели для больших заказов. Согласовываем цветовую гамму, размер, оформление, делаем превью композиции до старта.',
+      },
+    ],
+  },
+
+  map: {
+    kicker: 'Где мы',
+    title: 'Калининград и доставка по городу',
+    description: 'Работаем в Калининграде. Самовывоз по адресу уточняется при оформлении — локация меняется в зависимости от загрузки кухни.',
+    yandexEmbed: 'https://yandex.ru/map-widget/v1/?ll=20.507333%2C54.720687&z=11&l=map',
   },
 
   social: {

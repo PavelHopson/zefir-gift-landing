@@ -62,6 +62,110 @@ function renderHero() {
       .map((l) => `<span class="hero__floating-chip" style="transform: rotate(${l.rotate}deg)">${esc(l.label)}</span>`)
       .join('');
   }
+
+  const visual = document.getElementById('hero-visual');
+  if (visual && hero.visual && Array.isArray(hero.visual.photos)) {
+    visual.innerHTML = hero.visual.photos.map((p, i) => `
+      <figure class="hero__photo" style="--tilt: ${Number(p.tilt) || 0}deg; top: ${esc(p.top)}; right: ${esc(p.right)}; width: ${esc(p.width)}; z-index: ${Number(p.z) || i + 1}; --d: ${i * 0.18 + 0.4}s">
+        <div class="hero__photo-inner">
+          <img src="${esc(p.src)}" alt="${esc(p.alt)}" loading="eager" />
+        </div>
+        ${p.caption ? `<figcaption>${esc(p.caption)}</figcaption>` : ''}
+      </figure>
+    `).join('');
+  }
+}
+
+/* ── SEASONAL BANNER ───────────────────────────────────────── */
+function renderSeasonal() {
+  const { seasonal } = landingContent;
+  if (!seasonal) return;
+  const bar = document.getElementById('seasonal-banner');
+  if (!bar) return;
+
+  const dismissed = localStorage.getItem('seasonal-dismissed');
+  if (!seasonal.active || dismissed === '1') return;
+
+  setText('[data-seasonal-emoji]', seasonal.emoji);
+  setText('[data-seasonal-title]', seasonal.title);
+  setText('[data-seasonal-desc]', seasonal.description);
+  const cta = document.getElementById('seasonal-cta');
+  if (cta) { cta.textContent = seasonal.ctaLabel; cta.href = seasonal.ctaHref; }
+
+  bar.hidden = false;
+  bar.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('has-seasonal');
+
+  const close = document.getElementById('seasonal-close');
+  if (close) {
+    close.addEventListener('click', () => {
+      bar.hidden = true;
+      bar.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('has-seasonal');
+      localStorage.setItem('seasonal-dismissed', '1');
+    });
+  }
+}
+
+/* ── LOOKBOOK ─────────────────────────────────────────────── */
+function renderLookbook() {
+  const { lookbook } = landingContent;
+  if (!lookbook) return;
+  setText('[data-lookbook-kicker]', lookbook.kicker);
+  setText('[data-lookbook-title]', lookbook.title);
+  setText('[data-lookbook-description]', lookbook.description);
+
+  const track = document.getElementById('lookbook-track');
+  if (track && Array.isArray(lookbook.photos)) {
+    // duplicate for seamless infinite marquee
+    const once = lookbook.photos.map((p, i) => `
+      <figure class="lookbook__card" style="--tilt: ${(i % 2 ? 2 : -2)}deg">
+        <img src="${esc(p.src)}" alt="${esc(p.alt)}" loading="lazy" />
+      </figure>
+    `).join('');
+    track.innerHTML = once + once;
+  }
+
+  const cta = document.getElementById('lookbook-cta');
+  if (cta) { cta.textContent = lookbook.ctaLabel; cta.href = lookbook.ctaHref; }
+}
+
+/* ── FAQ ─────────────────────────────────────────────────── */
+function renderFaq() {
+  const { faq } = landingContent;
+  if (!faq) return;
+  setText('[data-faq-kicker]', faq.kicker);
+  setText('[data-faq-title]', faq.title);
+  setText('[data-faq-description]', faq.description);
+
+  const list = document.getElementById('faq-list');
+  if (!list) return;
+
+  list.innerHTML = faq.items.map((it, i) => `
+    <details class="faq__item"${i === 0 ? ' open' : ''}>
+      <summary class="faq__q">
+        <span class="faq__q-text">${esc(it.q)}</span>
+        <span class="faq__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </summary>
+      <div class="faq__a">${esc(it.a)}</div>
+    </details>
+  `).join('');
+}
+
+/* ── MAP ─────────────────────────────────────────────────── */
+function renderMap() {
+  const { map } = landingContent;
+  if (!map) return;
+  setText('[data-map-kicker]', map.kicker);
+  setText('[data-map-title]', map.title);
+  setText('[data-map-description]', map.description);
+
+  const frame = document.getElementById('map-frame');
+  if (frame && map.yandexEmbed) {
+    frame.innerHTML = `<iframe src="${esc(map.yandexEmbed)}" title="Карта: Калининград" loading="lazy" frameborder="0" allowfullscreen></iframe>`;
+  }
 }
 
 /* ── MANIFESTO ────────────────────────────────────────────── */
@@ -419,6 +523,134 @@ function initStatsCountup() {
 }
 
 /* ════════════════════════════════════════════════════════════
+   Lightbox — click a gallery photo, open fullscreen viewer
+   ════════════════════════════════════════════════════════════ */
+function initLightbox() {
+  const box = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  const capt = document.getElementById('lightbox-caption');
+  const counter = document.getElementById('lightbox-counter');
+  const btnClose = document.getElementById('lightbox-close');
+  const btnPrev = document.getElementById('lightbox-prev');
+  const btnNext = document.getElementById('lightbox-next');
+  if (!box || !img) return;
+
+  let list = []; // current set of {src, alt, caption}
+  let idx = 0;
+  let lastFocus = null;
+
+  const renderIdx = () => {
+    if (!list.length) return;
+    const item = list[idx];
+    img.src = item.src;
+    img.alt = item.alt || '';
+    capt.textContent = item.caption || item.alt || '';
+    counter.textContent = `${idx + 1} / ${list.length}`;
+  };
+
+  const open = (items, startIdx) => {
+    list = items;
+    idx = startIdx;
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+    renderIdx();
+    requestAnimationFrame(() => box.classList.add('is-open'));
+    lastFocus = document.activeElement;
+    btnClose.focus();
+  };
+
+  const close = () => {
+    box.classList.remove('is-open');
+    setTimeout(() => {
+      box.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }, 240);
+  };
+
+  const prev = () => { idx = (idx - 1 + list.length) % list.length; renderIdx(); };
+  const next = () => { idx = (idx + 1) % list.length; renderIdx(); };
+
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+  box.addEventListener('click', (e) => { if (e.target === box) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') prev();
+    else if (e.key === 'ArrowRight') next();
+  });
+
+  // Wire up gallery photos — double-click opens lightbox, single click still swaps
+  document.querySelectorAll('.collection__gallery').forEach((gallery) => {
+    const photos = Array.from(gallery.querySelectorAll('.collection__photo img'));
+    if (!photos.length) return;
+    const items = photos.map((i) => ({ src: i.src, alt: i.alt, caption: i.alt }));
+    photos.forEach((imgEl, i) => {
+      imgEl.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        open(items, i);
+      });
+    });
+  });
+
+  // Lookbook photos — single click opens lightbox
+  const lookbookTrack = document.getElementById('lookbook-track');
+  if (lookbookTrack) {
+    const unique = (landingContent.lookbook?.photos || []).map((p) => ({ src: p.src, alt: p.alt, caption: p.alt }));
+    lookbookTrack.addEventListener('click', (e) => {
+      const figure = e.target.closest('.lookbook__card');
+      if (!figure) return;
+      const allCards = Array.from(lookbookTrack.querySelectorAll('.lookbook__card'));
+      const i = allCards.indexOf(figure) % unique.length;
+      open(unique, i);
+    });
+    lookbookTrack.style.cursor = 'zoom-in';
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   Scroll progress bar
+   ════════════════════════════════════════════════════════════ */
+function initScrollProgress() {
+  const bar = document.querySelector('.scroll-progress');
+  if (!bar) return;
+  let ticking = false;
+  const update = () => {
+    const h = document.documentElement;
+    const max = (h.scrollHeight - h.clientHeight) || 1;
+    const pct = Math.min(Math.max(window.scrollY / max, 0), 1);
+    bar.style.transform = `scaleX(${pct})`;
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+}
+
+/* ════════════════════════════════════════════════════════════
+   Magnetic buttons — desktop only, cursor attraction
+   ════════════════════════════════════════════════════════════ */
+function initMagneticButtons() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const els = document.querySelectorAll('.btn--primary.btn--lg, .btn--outline.btn--lg');
+  els.forEach((el) => {
+    const strength = 14;
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const mx = e.clientX - rect.left - rect.width / 2;
+      const my = e.clientY - rect.top - rect.height / 2;
+      el.style.transform = `translate(${mx / rect.width * strength}px, ${my / rect.height * strength}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  });
+}
+
+/* ════════════════════════════════════════════════════════════
    Parallax for hero sprig on scroll
    ════════════════════════════════════════════════════════════ */
 function initParallax() {
@@ -444,15 +676,22 @@ function init() {
   renderPriceStrip();
   renderCollection();
   renderPromos();
+  renderLookbook();
+  renderFaq();
+  renderMap();
   renderProcess();
   renderSocial();
   renderContact();
+  renderSeasonal();
 
   initMobileMenu();
   initReveal();
   initParallax();
   initGallerySwap();
   initStatsCountup();
+  initLightbox();
+  initScrollProgress();
+  initMagneticButtons();
 }
 
 if (document.readyState === 'loading') {
