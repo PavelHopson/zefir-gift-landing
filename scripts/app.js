@@ -339,6 +339,85 @@ function initMobileMenu() {
 }
 
 /* ════════════════════════════════════════════════════════════
+   Collection gallery: click a polaroid to bring it to the front
+   ════════════════════════════════════════════════════════════ */
+function initGallerySwap() {
+  document.querySelectorAll('.collection__gallery').forEach((gallery) => {
+    const photos = gallery.querySelectorAll('.collection__photo');
+    if (photos.length < 2) return;
+
+    photos.forEach((photo) => {
+      photo.setAttribute('role', 'button');
+      photo.setAttribute('tabindex', '0');
+      const img = photo.querySelector('img');
+      const label = img ? img.alt || 'Фото' : 'Фото';
+      photo.setAttribute('aria-label', `${label} — нажмите, чтобы вывести на передний план`);
+    });
+
+    const handler = (e) => {
+      const photo = e.target.closest('.collection__photo');
+      if (!photo) return;
+      const isBehind = photo.classList.contains('collection__photo--behind');
+      const current = gallery.dataset.focused;
+      const next = isBehind ? 'behind' : 'main';
+      // Toggle off if clicking the already-focused one back to default
+      if (current === next && next === 'behind') {
+        gallery.dataset.focused = 'main';
+      } else {
+        gallery.dataset.focused = next;
+      }
+    };
+    gallery.addEventListener('click', handler);
+    gallery.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handler(e);
+      }
+    });
+  });
+}
+
+/* ════════════════════════════════════════════════════════════
+   Social stats count-up — parses leading number and animates
+   ════════════════════════════════════════════════════════════ */
+function initStatsCountup() {
+  const nodes = document.querySelectorAll('.social__stat-big');
+  if (!nodes.length || !('IntersectionObserver' in window)) return;
+
+  const animate = (el) => {
+    const raw = el.dataset.target || el.textContent.trim();
+    const match = raw.match(/^(\d+)(.*)$/);
+    if (!match) return;
+    const target = parseInt(match[1], 10);
+    const suffix = match[2];
+    if (!el.dataset.target) el.dataset.target = raw;
+
+    const duration = 1200;
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      const val = Math.round(target * eased);
+      el.textContent = `${val}${suffix}`;
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = raw;
+    };
+    requestAnimationFrame(step);
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  nodes.forEach((n) => io.observe(n));
+}
+
+/* ════════════════════════════════════════════════════════════
    Parallax for hero sprig on scroll
    ════════════════════════════════════════════════════════════ */
 function initParallax() {
@@ -371,6 +450,8 @@ function init() {
   initMobileMenu();
   initReveal();
   initParallax();
+  initGallerySwap();
+  initStatsCountup();
 }
 
 if (document.readyState === 'loading') {
