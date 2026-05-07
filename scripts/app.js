@@ -16,6 +16,26 @@ function esc(s) {
   }[c]));
 }
 
+/* ── SEO ───────────────────────────────────────────────────────── */
+function renderSeo() {
+  const { seo } = landingContent;
+  if (!seo) return;
+
+  if (seo.title) document.title = seo.title;
+
+  const setMeta = (selector, value) => {
+    const node = document.querySelector(selector);
+    if (node && value) node.setAttribute('content', value);
+  };
+
+  setMeta('meta[name="description"]', seo.description);
+  setMeta('meta[name="keywords"]', seo.keywords);
+  setMeta('meta[property="og:title"]', seo.ogTitle || seo.title);
+  setMeta('meta[property="og:description"]', seo.ogDescription || seo.description);
+  setMeta('meta[name="twitter:title"]', seo.ogTitle || seo.title);
+  setMeta('meta[name="twitter:description"]', seo.ogDescription || seo.description);
+}
+
 /* ── BRAND ─────────────────────────────────────────────────── */
 function renderBrand() {
   const { brand, footer } = landingContent;
@@ -50,11 +70,25 @@ function renderHero() {
   setText('[data-hero-bottom]', hero.titleBottom);
   setText('[data-hero-tagline]', hero.tagline);
   setText('[data-hero-subline]', hero.subline);
+  setText('[data-hero-microproof]', hero.microproof);
 
   const primary = document.getElementById('hero-cta-primary');
   const secondary = document.getElementById('hero-cta-secondary');
-  if (primary) { primary.textContent = hero.ctaPrimary.label; primary.href = hero.ctaPrimary.href; }
-  if (secondary) { secondary.textContent = hero.ctaSecondary.label; secondary.href = hero.ctaSecondary.href; }
+  const bindLink = (node, link) => {
+    if (!node || !link) return;
+    node.textContent = link.label;
+    node.href = link.href;
+    const isExternal = /^https?:\/\//.test(link.href);
+    if (isExternal) {
+      node.target = '_blank';
+      node.rel = 'noreferrer';
+    } else {
+      node.removeAttribute('target');
+      node.removeAttribute('rel');
+    }
+  };
+  bindLink(primary, hero.ctaPrimary);
+  bindLink(secondary, hero.ctaSecondary);
 
   const floating = document.getElementById('hero-floating');
   if (floating) {
@@ -72,6 +106,60 @@ function renderHero() {
         </div>
         ${p.caption ? `<figcaption>${esc(p.caption)}</figcaption>` : ''}
       </figure>
+    `).join('');
+  }
+}
+
+/* ── LOCAL INTENT / EARLY PROOF ───────────────────────────────── */
+function renderLocalIntent() {
+  const { localIntent } = landingContent;
+  if (!localIntent) return;
+
+  setText('[data-intent-kicker]', localIntent.kicker);
+  setText('[data-intent-title]', localIntent.title);
+  setText('[data-intent-description]', localIntent.description);
+  setText('[data-intent-proof-label]', localIntent.proofLabel);
+
+  const chips = document.getElementById('intent-chips');
+  if (chips) {
+    chips.innerHTML = (localIntent.chips || [])
+      .map((chip) => `<span class="intent__chip">${esc(chip)}</span>`)
+      .join('');
+  }
+
+  const paths = document.getElementById('intent-paths');
+  if (paths) {
+    paths.innerHTML = (localIntent.paths || []).map((path) => `
+      <article class="intent__path">
+        <p class="intent__path-label">${esc(path.label)}</p>
+        <h3 class="intent__path-title">${esc(path.title)}</h3>
+        <p class="intent__path-text">${esc(path.text)}</p>
+        <a class="intent__path-cta" href="${esc(path.href)}" target="_blank" rel="noreferrer">
+          ${esc(path.ctaLabel)}
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+    `).join('');
+  }
+
+  const quote = document.getElementById('intent-quote');
+  if (quote && localIntent.quote) {
+    quote.innerHTML = `
+      <p class="intent__quote-text">${esc(localIntent.quote.text)}</p>
+      <footer class="intent__quote-foot">
+        <span class="intent__quote-name">${esc(localIntent.quote.name)}</span>
+        <span class="intent__quote-context">${esc(localIntent.quote.context)}</span>
+      </footer>
+    `;
+  }
+
+  const stats = document.getElementById('intent-stats');
+  if (stats) {
+    stats.innerHTML = (localIntent.stats || []).map((item) => `
+      <div class="intent__stat">
+        <span class="intent__stat-big">${esc(item.big)}</span>
+        <span class="intent__stat-small">${esc(item.small)}</span>
+      </div>
     `).join('');
   }
 }
@@ -669,9 +757,11 @@ function initParallax() {
    Init
    ════════════════════════════════════════════════════════════ */
 function init() {
+  renderSeo();
   renderBrand();
   renderNav();
   renderHero();
+  renderLocalIntent();
   renderManifesto();
   renderPriceStrip();
   renderCollection();
