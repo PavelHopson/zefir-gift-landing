@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "project": "zefir-gift-landing",
+  "capturedAt": "2026-09-08T09:50:58.169Z",
+  "caption": "Первый экран «Вся в Зефире»: брендовая типографика и фотографии работ из локальных ресурсов.",
+  "method": "isolated-local-source-preview",
+  "context": "Local source preview, clean browser storage, reduced motion, no .env, external resources and backend APIs blocked. Repository content only, no additional fixtures or personal history; no production verification.",
+  "sourceHead": "98ee01dfd229d2dd82394996aee076273b8d3969",
+  "sourceWorktreeDirty": true,
+  "entryFiles": [
+    {
+      "file": "index.html",
+      "sha256": "3b5e612478e3dc61f64d2e2029fab1c4feaafe2904a4ed869aaa6b7a54bfc5cb"
+    }
+  ],
+  "screenshots": [
+    {
+      "kind": "overview",
+      "file": "overview.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "0e2a5824dfb9a6ad298ad2affcbca18c8e07d7c0ddc54d9d8e087f2d23271465",
+      "bytes": 1203098
+    }
+  ],
+  "review": "Desktop and selected mobile captures visually reviewed before documentation use."
+}

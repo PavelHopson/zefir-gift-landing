@@ -1,16 +1,50 @@
-# Вся в зефире
+# Зефирные подарки
 
-Сайт-витрина домашней кондитерской `«Вся в зефире»`.
+![Зефирные подарки: Подарок → Детали → Связь](docs/assets/repository-cover.svg)
 
-Теперь это не одна карточка, а полноценный одностраничный сайт со структурой:
+**Сайт малого бизнеса.** Статическая витрина подарочных наборов с галереей, информацией о заказе и контактами.
 
-- брендовый hero
-- блок коллекций
-- галерея работ
-- спецпредложения
-- преимущества
-- сценарий заказа
-- контактный финальный блок
+<!-- repository-guide:start -->
+[Интерфейс](#readme-interface) · [Первый запуск](#readme-start) · [Что внутри](#readme-map) · [Путеводитель](docs/repository-guide.md#start) · [Карта кода](docs/repository-guide.md#map) · [Проверки](docs/repository-guide.md#checks) · [Границы и права](docs/repository-guide.md#boundaries)
+
+<a id="readme-interface"></a>
+
+## Интерфейс
+
+![Зефирные подарки — Первый экран «Вся в Зефире»: брендовая типографика и фотографии работ из локальных ресурсов.](docs/assets/ui/overview.png)
+
+**Первый экран «Вся в Зефире»: брендовая типографика и фотографии работ из локальных ресурсов.**
+
+Локальный снимок от 8 сентября 2026: отдельный профиль браузера, без внешних API и пользовательских секретов. Это вид интерфейса, не подтверждение production-функций.
+
+[Открыть в полном размере](docs/assets/ui/overview.png) · [Данные снимка](docs/assets/ui/capture.json)
+
+<a id="readme-map"></a>
+
+## Проект за минуту
+
+- **[Контент в одном месте](<scripts/content.js>)** — Тексты, контакты, коллекции и галерея работ.
+- **[Поведение страницы](<scripts/app.js>)** — Отображение секций и обработка взаимодействий.
+- **[Оформление](<styles/main.css>)** — Палитра, типографика и адаптивная композиция.
+
+<a id="readme-start"></a>
+
+## Начать локально
+
+**Среда:** Браузер, сборщик не нужен. **Источник:** [index.html](<index.html>).
+
+Откройте `index.html` в браузере. Контент меняется в `scripts/content.js`, оформление — в `styles/main.css`.
+
+<details>
+<summary><strong>Перед первым запуском и изменением кода</strong></summary>
+
+- Команды сверены с исходниками 8 сентября 2026. Это инструкция, а не отметка об успешном запуске или текущем production.
+- Установка зависимостей может обращаться в registry и выполнять lifecycle scripts. Используйте отдельную рабочую среду и демонстрационные данные.
+- Перед публичным использованием проверьте актуальность контактов, условий заказа и права на фотографии.
+
+
+</details>
+<!-- repository-guide:end -->
 
 ## Структура
 
@@ -42,7 +76,7 @@ zefir-gift-landing/
 
 Все тексты, ссылки, названия секций и галерея вынесены в:
 
-- [content.js](/E:/projects/zefir-gift-landing/scripts/content.js)
+- [content.js](scripts/content.js)
 
 Основные блоки:
 
@@ -60,7 +94,7 @@ zefir-gift-landing/
 
 ## Где менять галерею работ
 
-В [content.js](/E:/projects/zefir-gift-landing/scripts/content.js) ищи `works.items`.
+В [content.js](scripts/content.js) ищи `works.items`.
 
 У каждой работы есть:
 
@@ -83,7 +117,7 @@ zefir-gift-landing/
 
 Сейчас для витрины используются изображения из:
 
-- [assets/images](/E:/projects/zefir-gift-landing/assets/images)
+- [assets/images](assets/images)
 
 Можно:
 
@@ -93,7 +127,7 @@ zefir-gift-landing/
 
 ## Где менять телефон и Telegram
 
-В [content.js](/E:/projects/zefir-gift-landing/scripts/content.js):
+В [content.js](scripts/content.js):
 
 - `contact.telegram`
 - `contact.telegramUrl`
@@ -104,7 +138,7 @@ zefir-gift-landing/
 
 Все основные переменные лежат в начале:
 
-- [main.css](/E:/projects/zefir-gift-landing/styles/main.css)
+- [main.css](styles/main.css)
 
 В `:root` вынесены:
 
@@ -119,11 +153,11 @@ zefir-gift-landing/
 
 Главная разметка:
 
-- [index.html](/E:/projects/zefir-gift-landing/index.html)
+- [index.html](index.html)
 
 Логика рендера секций:
 
-- [app.js](/E:/projects/zefir-gift-landing/scripts/app.js)
+- [app.js](scripts/app.js)
 
 ## Как открыть
 
