@@ -1,5 +1,9 @@
 # Зефирные подарки
 
+<!-- project-links:start -->
+[Открыть веб-версию](https://vsya-v-zefire.pages.dev) · [Документация](docs/repository-guide.md) · [Код](https://github.com/PavelHopson/zefir-gift-landing/tree/main) · [История изменений](https://github.com/PavelHopson/zefir-gift-landing/commits/main/)
+<!-- project-links:end -->
+
 ![Зефирные подарки: Подарок → Детали → Связь](docs/assets/repository-cover.svg)
 
 **Сайт малого бизнеса.** Статическая витрина подарочных наборов с галереей, информацией о заказе и контактами.
