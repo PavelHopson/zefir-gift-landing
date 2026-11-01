@@ -21,40 +21,68 @@ export const landingContent = {
     name: 'Вся в Зефире',
     label: 'Домашняя кондитерская · Калининград',
     handle: '@tt_zefir39',
-    established: 'est. 2024',
+    established: '',
   },
 
   nav: [
-    { label: 'Букеты', href: '#bouquets' },
-    { label: 'Коллекция', href: '#collection' },
-    { label: 'Прайс', href: '#pricelist' },
+    { label: 'В наличии', href: '#collection' },
+    { label: 'Торты', href: '#cakes' },
+    { label: 'Осень', href: '#autumn' },
+    { label: 'К праздникам', href: '#limited' },
     { label: 'Отзывы', href: '#social' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Доставка', href: '#delivery' },
     { label: 'Контакт', href: '#contact' },
   ],
 
   hero: {
-    kicker: 'Калининград · съедобные букеты · @tt_zefir39',
-    titleTop: 'Вся',
-    titleMid: 'в',
-    titleBottom: 'Зефире',
-    tagline: 'Зефирные букеты и подарочные десерты ручной работы',
-    subline: 'Собираем букеты, подарочные коробки, сладкие комплименты и индивидуальные композиции в Калининграде — с красивой упаковкой, понятным прайсом и живым общением в Telegram.',
-    microproof: 'Ответим в Telegram в течение дня · Доставка по Калининграду · Букеты и наборы под заказ',
-    ctaPrimary: { label: 'Написать в Telegram и обсудить заказ', href: 'https://t.me/tt_zefir39' },
-    ctaSecondary: { label: 'Посмотреть букеты и цены', href: '#bouquets' },
-    floatingLabels: [
-      { label: 'доставка по Калининграду', rotate: -4 },
-      { label: 'букеты под заказ', rotate: 3 },
-      { label: 'ручная работа без конвейера', rotate: -2 },
+    kicker: 'Домашняя кондитерская · Калининград',
+    tagline: 'Зефир, букеты и торты ручной работы',
+    photo: { src: 'assets/images/new/cake-tulips-dark.webp', alt: 'Торт с тюльпанами ручной работы на тёмном фоне' },
+  },
+
+  limited: {
+    kicker: 'Ограниченные коллекции',
+    title: 'Выходят к праздникам',
+    description: 'Небольшие партии к дате. Лучше написать заранее.',
+    ctaLabel: 'Спросить в Telegram',
+    items: [
+      { when: 'Декабрь', title: 'Новый год', text: 'Подарочные наборы к праздничному столу и для коллег.', tile: 'tile-choc', tone: 'light', image: 'assets/images/new/holiday-newyear.webp', example: true },
+      { when: 'Февраль', title: '14 февраля', text: 'Сладкий подарок для любимого человека.', tile: 'tile-burgundy', tone: 'light', image: 'assets/images/new/holiday-valentine.webp', example: true },
+      { when: 'Март', title: '8 Марта', text: 'Цветы, которые можно съесть.', tile: 'tile-rose', tone: 'dark', image: 'assets/images/new/cake-tulips.webp' },
+      { when: 'Весна', title: 'Пасха', text: 'Куличи с цветами ручной работы.', tile: 'tile-moss', tone: 'light', image: 'assets/images/new/easter-new.webp' },
+      { when: 'Сентябрь', title: '1 сентября', text: 'Вместо обычного букета для первого учителя.', tile: 'tile-champagne', tone: 'dark', image: 'assets/images/new/holiday-september.webp', example: true },
+      { when: 'Октябрь', title: 'День учителя', text: 'Небольшие наборы для всего педагогического состава.', tile: 'tile-sage', tone: 'light', image: 'assets/images/new/holiday-teacher.webp', example: true },
     ],
-    visual: {
-      photos: [
-        { src: 'assets/images/bouquet-pink-roses-basket.jpg', alt: 'Большой букет из зефирных роз в корзине', tilt: -4, caption: 'букеты', top: '4%', right: '8%', width: '62%', z: 3 },
-        { src: 'assets/images/zavitki-pink-box.jpg', alt: 'Розовая коробка с зефирными завитками', tilt: 8, caption: 'коробки', top: '48%', right: '42%', width: '42%', z: 2 },
-        { src: 'assets/images/compliment-rose-dome.jpg', alt: 'Небольшой сладкий комплимент с зефирной розой', tilt: -7, caption: 'комплименты', top: '62%', right: '0%', width: '40%', z: 1 },
-      ],
-    },
+  },
+
+  cakes: {
+    kicker: 'Торты',
+    text: 'Белый крем, свежие ягоды и мята или цветы ручной работы.',
+    note: 'Собираем под вашу дату.',
+    ctaLabel: 'Заказать торт',
+    video: { src: 'assets/images/new/cake-loop.mp4', poster: 'assets/images/new/cake-loop-poster.jpg', label: 'Торт с жемчужинами и бантом' },
+    images: [
+      { src: 'assets/images/new/cake-berry-top.webp', alt: 'Белый торт с ежевикой и мятой' },
+      { src: 'assets/images/new/cake-pearl-sun.webp', alt: 'Торт с жемчужинами и белым бантом' },
+      { src: 'assets/images/new/cake-rose-side.webp', alt: 'Белый торт с розовыми цветами' },
+      { src: 'assets/images/new/cake-mushroom-basket.webp', alt: 'Торт-корзина с зефирными грибами' },
+      { src: 'assets/images/new/cake-tulips.webp', alt: 'Торт с тюльпанами ручной работы' },
+      { src: 'assets/images/new/cake-strawberry.webp', alt: 'Торт с клубникой' },
+      { src: 'assets/images/new/cake-bear.webp', alt: 'Детский торт с медвежонком' },
+    ],
+  },
+
+  autumn: {
+    kicker: 'Осенняя коллекция',
+    text: 'Тыквы полностью из зефира, сделаны вручную.',
+    note: 'Можно приобрести. Напишите нам.',
+    ctaLabel: 'Приобрести в Telegram',
+    video: { src: 'assets/autumn/autumn-loop.mp4', poster: 'assets/autumn/autumn-loop-poster.jpg', label: 'Зефирные тыквы крупным планом' },
+    images: [
+      { src: 'assets/autumn/autumn-1.webp', alt: 'Зефирная тыква на деревянной подставке, за ней букет хризантем' },
+      { src: 'assets/autumn/autumn-2.webp', alt: 'Зефирная тыква с листьями и усиками крупным планом' },
+      { src: 'assets/autumn/autumn-3.webp', alt: 'Две зефирные тыквы и хризантемы' },
+    ],
   },
 
   localIntent: {
@@ -119,17 +147,23 @@ export const landingContent = {
   },
 
   collection: {
-    kicker: 'Коллекция',
-    title: 'Что мы делаем',
-    description: 'Шесть направлений — от классических завитков до авторских десертов. Все композиции можно собрать под повод, настроение и бюджет.',
+    kicker: 'Постоянно в наличии',
+    title: 'Можно заказать в любой день',
+    plaques: [
+      { text: 'Красота, которую можно попробовать', tone: 'plaque-burgundy', position: 1 },
+      { text: 'Наши вкусы', tone: 'plaque-rose', position: 3 },
+      { text: 'Создано с любовью', tone: 'plaque-sage', position: 8 },
+    ],
     items: [
       {
         id: 'zavitki-classic',
+        image: 'assets/images/new/zavitki-tray.webp',
+        alt: 'Зефирные завитки разных вкусов',
         num: '01',
         category: 'Классика',
         title: 'Зефирные завитки',
         tagline: 'Нежные, воздушные, ягодные',
-        description: 'Классические зефирные завитки на основе яблочного пюре с натуральными ягодными начинками. Базовая коллекция — то, с чего всё начиналось.',
+        description: 'На яблочном пюре с ягодной начинкой.',
         priceFrom: '400',
         sizes: [
           { label: '10 шт', price: '1000' },
@@ -138,7 +172,7 @@ export const landingContent = {
         ],
         flavors: ['яблоко', 'чёрная смородина', 'малина', 'клубника', 'вишня', 'апельсин', 'черника'],
         images: [
-          { src: 'assets/images/zavitki-classic-box.jpg', alt: 'Коробка классических зефирных завитков', tilt: -3, caption: 'ягодная классика' },
+          { src: 'assets/images/new/zavitki-tray.webp', alt: 'Зефирные завитки разных вкусов', tilt: 0 },
           { src: 'assets/images/zavitki-white-mint.jpg', alt: 'Белые завитки в мятной упаковке', tilt: 5 },
         ],
         tapeColor: 'rgba(232, 197, 206, 0.72)',
@@ -146,11 +180,13 @@ export const landingContent = {
       },
       {
         id: 'zavitki-author',
+        image: 'assets/images/new/zavitki-verticals.webp',
+        alt: 'Авторские зефирные завитки крупным планом',
         num: '02',
         category: 'Авторское',
         title: 'Авторские завитки',
         tagline: 'С подачей и начинкой',
-        description: 'Авторские завитки с особыми вкусами — больше слоёв, больше характера. Подарочная коробка с декором и лентой.',
+        description: 'Особые вкусы в подарочной коробке с лентой.',
         priceFrom: '500',
         sizes: [
           { label: '10 шт', price: '1200', old: '1400' },
@@ -167,11 +203,13 @@ export const landingContent = {
       },
       {
         id: 'compliment',
+        image: 'assets/images/new/compliment-box.webp',
+        alt: 'Завитки в прозрачной подарочной коробке',
         num: '03',
         category: 'Мини',
         title: 'Комплимент',
         tagline: 'Маленький подарок — большое впечатление',
-        description: 'Мини-формат под конверт, букет или дополнение к основному подарку. Завитки или цветок — в прозрачной подарочной упаковке.',
+        description: 'Мини-подарок: завитки или цветок в прозрачной упаковке.',
         priceFrom: '400',
         sizes: [
           { label: '3 завитка или 1 цветок', price: '400' },
@@ -179,7 +217,7 @@ export const landingContent = {
         ],
         flavors: [],
         images: [
-          { src: 'assets/images/compliment-rose-dome.jpg', alt: 'Зефирная роза под прозрачным куполом', tilt: -4, caption: 'роза под куполом' },
+          { src: 'assets/images/new/gift-boxes.webp', alt: 'Подарочные коробочки с зелёными бантами', tilt: 0 },
           { src: 'assets/images/compliment-mushroom-gifts.jpg', alt: 'Миниатюрные коробочки с грибочками', tilt: 5 },
         ],
         tapeColor: 'rgba(232, 197, 197, 0.72)',
@@ -187,11 +225,13 @@ export const landingContent = {
       },
       {
         id: 'mushrooms',
+        image: 'assets/images/new/mushrooms-set-2.webp',
+        alt: 'Зефирные мухоморы, боровики и лисички',
         num: '04',
         category: 'Шедевр',
         title: 'Зефирные грибочки',
         tagline: 'Лесная сказка на столе',
-        description: 'Боровички, лисички, мухоморы — всё из зефира. Выглядят настолько реально, что гости сомневаются. Лучший подарок с юмором.',
+        description: 'Боровики, лисички и мухоморы из зефира.',
         priceFrom: '750',
         sizes: [
           { label: 'коробка 13×13', price: '750' },
@@ -201,19 +241,21 @@ export const landingContent = {
         ],
         flavors: [],
         images: [
-          { src: 'assets/images/mushrooms-autumn-basket.jpg', alt: 'Корзина с зефирными грибочками и листьями', tilt: -3, caption: 'лесная сказка' },
-          { src: 'assets/images/mushrooms-boletus-pile.jpg', alt: 'Крупный план зефирных боровиков', tilt: 5 },
+          { src: 'assets/images/new/mushrooms-set-2.webp', alt: 'Зефирные мухоморы, боровики и лисички', tilt: 0 },
+          { src: 'assets/images/new/mushrooms-boletus.webp', alt: 'Зефирные боровики крупным планом', tilt: 0 },
         ],
         tapeColor: 'rgba(196, 165, 132, 0.7)',
         accent: '#9E8B73',
       },
       {
         id: 'cheesecake',
+        image: 'assets/images/new/cheesecake-snickers-side.webp',
+        alt: 'Шоколадный чизкейк с карамелью и орехами',
         num: '05',
         category: 'Десерт',
         title: 'Чизкейки',
         tagline: 'Плотный, сливочный, как обещали',
-        description: 'Настоящий домашний чизкейк с характером. Восемь авторских вкусов — от классического «трёх шоколадов» до карамельного сникерса и нежного тирамису.',
+        description: 'Домашний чизкейк, восемь вкусов.',
         priceFrom: '1200',
         sizes: [
           { label: 'd=16 см', price: '1200' },
@@ -221,18 +263,21 @@ export const landingContent = {
         ],
         flavors: ['три шоколада', 'сникерс', 'баунти', 'марс', 'твикс', 'милка', 'тирамису', 'брауни'],
         images: [
-          { src: 'assets/images/cheesecake-snickers.jpg', alt: 'Шоколадный чизкейк с карамельно-ореховой глазурью', tilt: -2, caption: 'сникерс' },
+          { src: 'assets/images/new/cheesecake-snickers-side.webp', alt: 'Шоколадный чизкейк с карамелью и орехами', tilt: 0 },
+          { src: 'assets/images/new/cheesecake-nut-top.webp', alt: 'Карамель с орехами на чизкейке', tilt: 0 },
         ],
         tapeColor: 'rgba(196, 165, 132, 0.7)',
         accent: '#C4A584',
       },
       {
         id: 'bouquets',
+        image: 'assets/images/new/bouquet-white-roses.webp',
+        alt: 'Большая корзина светлых зефирных роз',
         num: '06',
         category: 'Топ',
         title: 'Съедобные букеты',
         tagline: 'Флагман коллекции',
-        description: 'Букеты из зефирных цветов — пионы, розы, хризантемы. Корзины, шляпные коробки, свадебные композиции. Работаем на индивидуальный заказ.',
+        description: 'Пионы, розы и хризантемы из зефира в корзинах и коробках.',
         priceFrom: '3000',
         sizes: [
           { label: 'компактный букет', price: 'от 3000' },
@@ -241,8 +286,8 @@ export const landingContent = {
         ],
         flavors: [],
         images: [
-          { src: 'assets/images/bouquet-pink-roses-basket.jpg', alt: 'Большая корзина пыльно-розовых роз', tilt: -3, caption: 'флагман' },
-          { src: 'assets/images/bouquet-pink-peonies.jpg', alt: 'Букет розовых пионов', tilt: 6 },
+          { src: 'assets/images/new/basket-flowers.webp', alt: 'Корзина с зефирными цветами', tilt: 0 },
+          { src: 'assets/images/new/basket-lilac.webp', alt: 'Корзина сиреневых зефирных цветов', tilt: 0 },
         ],
         tapeColor: 'rgba(213, 223, 208, 0.72)',
         accent: '#C49A8F',
@@ -253,7 +298,7 @@ export const landingContent = {
   promos: {
     kicker: 'Сладкие бонусы',
     title: 'С любовью и заботой',
-    description: 'Первый заказ — со скидкой. К каждой корзине цветов — коробочка завитков в подарок. Маленькие детали, которые мы любим.',
+    description: '',
     items: [
       {
         icon: 'percent',
@@ -300,40 +345,40 @@ export const landingContent = {
       {
         num: '01',
         title: 'Выберите',
-        text: 'Посмотрите коллекцию, определитесь с направлением и бюджетом. Если не уверены — подскажем.',
+        text: 'Посмотрите каталог, подскажем при сомнениях.',
       },
       {
         num: '02',
         title: 'Напишите',
-        text: 'Telegram, WhatsApp или Instagram — как удобно. Уточним состав, размер, дату и адрес доставки.',
+        text: 'Уточним состав, дату и адрес.',
       },
       {
         num: '03',
         title: 'Согласуйте',
-        text: 'Обсудим оформление, упаковку, открытку. При заказе букета присылаем превью композиции.',
+        text: 'Обсудим оформление и упаковку.',
       },
       {
         num: '04',
         title: 'Получите',
-        text: 'Доставка по Калининграду или самовывоз. Упакуем так, чтобы сразу можно было вручить.',
+        text: 'Доставка по Калининграду или самовывоз.',
       },
     ],
   },
 
   lookbook: {
-    kicker: 'Lookbook',
-    title: 'Что мы делали в этом сезоне',
-    description: 'Небольшой поток из instagram — без фильтров, как приготовили и отдали.',
+    kicker: 'Наши работы',
+    title: 'Как это выглядит',
+    description: '',
     // photos used only here (not referenced elsewhere) to give them a stage
     photos: [
-      { src: 'assets/images/zavitki-rainbow-collage.jpg', alt: 'Набор коробок завитков разных цветов' },
-      { src: 'assets/images/bouquet-mixed-basket.jpg',    alt: 'Корзина-микс с розами и пионами' },
-      { src: 'assets/images/zavitki-verticals.jpg',       alt: 'Вертикальный кадр с завитками' },
-      { src: 'assets/images/zavitki-green-purple.jpg',    alt: 'Зелёная и сиреневая коробки' },
-      { src: 'assets/images/compliment-mushroom-gifts.jpg', alt: 'Мини-коробки с грибочками и бантами' },
-      { src: 'assets/images/bouquet-cream-roses.jpg',     alt: 'Букет кремовых роз' },
-      { src: 'assets/images/zavitki-pink-box.jpg',        alt: 'Розовая коробка с завитками' },
-      { src: 'assets/images/bouquet-pink-peonies.jpg',    alt: 'Розовые пионы' },
+      { src: 'assets/images/new/cake-rose-chest.webp', alt: 'Торт-шкатулка с зефирными пионами' },
+      { src: 'assets/images/new/cake-mushroom-basket-2.webp', alt: 'Торт-корзина с грибами' },
+      { src: 'assets/images/new/cake-rose-pale.webp', alt: 'Торт с розами' },
+      { src: 'assets/images/new/basket-flowers-2.webp', alt: 'Корзина цветов с красным бантом' },
+      { src: 'assets/images/new/easter-table.webp', alt: 'Пасхальный стол с куличами' },
+      { src: 'assets/images/new/bun-swirl.webp', alt: 'Домашняя сдоба' },
+      { src: 'assets/images/new/zavitki-tray.webp', alt: 'Завитки' },
+      { src: 'assets/images/new/mushrooms-basket.webp', alt: 'Корзина зефирных грибов' },
     ],
     ctaLabel: 'Смотреть все работы в Instagram',
     ctaHref: 'https://instagram.com/tt_zefir39',
@@ -341,8 +386,8 @@ export const landingContent = {
 
   faq: {
     kicker: 'Частые вопросы',
-    title: 'Что спрашивают чаще всего',
-    description: 'Быстрые ответы. Если вопроса нет в списке — напишите в Telegram, ответим живым человеком.',
+    title: 'Вопросы',
+    description: '',
     items: [
       {
         q: 'Сколько хранится зефир?',
@@ -356,37 +401,20 @@ export const landingContent = {
         q: 'Как доставляете?',
         a: 'По Калининграду — курьером или самовывоз из нашей локации. Доставка от 400 ₽ в зависимости от района. При заказе от 2 000 ₽ по городу — бесплатно. За город и в область — по договорённости.',
       },
-      {
-        q: 'Есть ли варианты без сахара или для диабетиков?',
-        a: 'Классический зефир на сахаре. По отдельному запросу делаем на фруктозе/эритрите — нужно заказывать заранее (минимум за 3 дня). Скажите при оформлении, если важно.',
-      },
-      {
-        q: 'Что если букет помнётся при доставке?',
-        a: 'Упаковываем в жёсткую коробку с фиксацией цветов. За три года таких случаев не было, но если что-то случится — переделаем и пришлём новый бесплатно. Делаем фото каждого букета перед отправкой.',
-      },
-      {
-        q: 'Можно ли на свадьбу или большое мероприятие?',
-        a: 'Да, работаем со свадьбами и корпоративами. Нужно обсудить заранее — за 2-3 недели для больших заказов. Согласовываем цветовую гамму, размер, оформление, делаем превью композиции до старта.',
-      },
     ],
   },
 
   map: {
     kicker: 'Где мы',
     title: 'Калининград и доставка по городу',
-    description: 'Работаем в Калининграде. Самовывоз по адресу уточняется при оформлении — локация меняется в зависимости от загрузки кухни.',
+    description: 'Курьером по городу и области или самовывоз, адрес уточним при заказе.',
     yandexEmbed: 'https://yandex.ru/map-widget/v1/?ll=20.507333%2C54.720687&z=11&l=map',
   },
 
   social: {
-    kicker: 'Доверие',
-    title: 'Почему к нам возвращаются',
-    stats: [
-      { big: '3 года', small: 'на рынке Калининграда' },
-      { big: '100%', small: 'ручная работа' },
-      { big: '0 ₽', small: 'доставка при заказе от 2 000 ₽' },
-      { big: '24 ч', small: 'срок изготовления маленьких заказов' },
-    ],
+    kicker: 'Отзывы',
+    title: 'Что говорят клиенты',
+    stats: [],
     quotes: [
       {
         text: 'Заказывала букет на юбилей маме — она ахнула. Пионы как настоящие. И вкус — не приторный, а мягкий. Через неделю заказала ещё коробку грибочков для детей.',
@@ -409,7 +437,7 @@ export const landingContent = {
   contact: {
     kicker: 'Контакт',
     title: 'Напишите нам',
-    description: 'Ответим в течение нескольких часов. Подскажем под повод, бюджет и вкусы — у нас это получается.',
+    description: '',
     methods: [
       {
         key: 'telegram',
@@ -449,6 +477,6 @@ export const landingContent = {
     tagline: 'Домашняя кондитерская · Калининград',
     year: '2026',
     handle: '@tt_zefir39',
-    made: 'Сделано с любовью в Калининграде',
+    made: '',
   },
 };
